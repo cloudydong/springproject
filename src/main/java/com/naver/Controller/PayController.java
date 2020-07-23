@@ -8,9 +8,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PayController {
 
-	@RequestMapping(value = "payment", method = RequestMethod.GET)
-	public void Payment() {
+	@RequestMapping(value = "kakaopay", method = RequestMethod.GET)
+	public void kakaopay() {
 		
+		
+	}
+	@RequestMapping(value = "payco",method = RequestMethod.GET)
+	public void Payco() {
+		
+	}
+	@RequestMapping(value = "naverpay",method = RequestMethod.GET)
+	public void Naverpay() {
 		
 	}
 }
