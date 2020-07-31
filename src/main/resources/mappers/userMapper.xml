@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="u.s.r">
+
+	<select id="login" resultType="kr.co.domain.User">
+        select * from USER_TB where u_id = #{u_id} and upw = password(#{upw});
+    </select>
+    
+    <update id="keepLogin">
+        update USER_TB set sessionkey = #{sessionkey}, sessionlimit = #{sessionlimit}
+         where u_id = #{u_id}
+    </update>
+    
+    <select id="checkLoginBefore" resultType="kr.co.domain.User">
+        select * from USER_TB
+         where sessionkey = #{loginCookie}
+           and sessionlimit > now()
+    </select>
+    
+    <select id="getBySnsNaver" resultType="kr.co.domain.User">
+        select * from USER_TB where naverid = #{naverid}
+    </select>
+    
+    <select id="getBySnsGoogle" resultType="kr.co.domain.User">
+        select * from USER_TB where googleid = #{googleid}
+    </select>
+	
+</mapper>

@@ -16,12 +16,11 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	 
 	<!-- DB -->
-	<!-- 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property value="oracle.jdbc.driver.OracleDriver" name="driverClassName"></property>
 		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url"></property>
-		<property value="ca5" name="username"></property>
-		<property value="ca5" name="password"></property>
+		<property value="kpang" name="username"></property>
+		<property value="cpang" name="password"></property>
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property ref="dataSource" name="dataSource"></property>
@@ -30,12 +29,13 @@
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" name="sqlSessionFactory"></constructor-arg>
-	</bean>-->
+	</bean>
 	
 	
 	<!-- service -->
 	<context:component-scan base-package="kr.co.service"/>
 	<context:component-scan base-package="com.naver.Controller"/>
+	<context:component-scan base-package="kr.co.persistence"/>
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
