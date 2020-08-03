@@ -2,7 +2,7 @@ package kr.co.auth;
 
 import com.github.scribejava.core.builder.api.DefaultApi20;
 
-public class NaverAPI20 extends DefaultApi20 implements SnsUrls {
+public class NaverAPI20 extends DefaultApi20 {
 	private NaverAPI20() {
 	}
 	
@@ -16,12 +16,12 @@ public class NaverAPI20 extends DefaultApi20 implements SnsUrls {
 
 	@Override
 	public String getAccessTokenEndpoint() {
-		return NAVER_ACCESS_TOKEN;
+		return "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code";
 	}
 
 	@Override
 	protected String getAuthorizationBaseUrl() {
-		return NAVER_AUTH;
+		return "https://nid.naver.com/oauth2.0/authorize";
 	}
 	
 	

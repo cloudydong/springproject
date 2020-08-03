@@ -9,7 +9,7 @@ import com.github.scribejava.core.builder.api.DefaultApi20;
 import lombok.Data;
 
 @Data
-public class SnsValue implements SnsUrls {
+public class SnsValue {
 	private String service;
 	private String clientId;
 	private String clientSecret;
@@ -31,11 +31,11 @@ public class SnsValue implements SnsUrls {
 		
 		if (isNaver) {
 			this.api20Instance = NaverAPI20.instance();
-			this.profileUrl = NAVER_PROFILE_URL;
+			this.profileUrl = "https://openapi.naver.com/v1/nid/me";
 			
 		} else if (isGoogle) {
 			this.api20Instance = GoogleApi20.instance();
-			this.profileUrl = GOOGLE_PROFILE_URL;
+			this.profileUrl = "https://www.googleapis.com/gmail/v1/users";
 		}
 	}
 }
