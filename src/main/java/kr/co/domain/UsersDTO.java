@@ -2,13 +2,10 @@ package kr.co.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-
+@Setter
+@Getter
 public class UsersDTO {
-	@Setter
-	@Getter
 	private String u_id;
-	@Setter
-	@Getter
 	private String name;
 
 	public UsersDTO() {
