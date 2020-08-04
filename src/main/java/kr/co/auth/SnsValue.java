@@ -30,7 +30,6 @@ public class SnsValue {
 		this.isGoogle = StringUtils.equalsIgnoreCase("google", this.service);
 		
 		if (isNaver) {
-			this.api20Instance = NaverAPI20.instance();
 			this.profileUrl = "https://openapi.naver.com/v1/nid/me";
 			
 		} else if (isGoogle) {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users.domain">
+
+	<select id="read" resultType="kr.co.domain.UsersDTO">
+		select * from users where u_id= #{userId}
+    </select>
+    
+	<insert id="create">
+		insert into users(u_id) values (#{userId})
+	</insert>  
+	
+	<insert id="insertName">
+		insert into users(name) values (#{name})
+	</insert>
+</mapper>

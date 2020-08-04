@@ -3,19 +3,8 @@
 	<form role="form" action="/loginPost" method="post">
 		<div class="box-body">
 			<div class="form-group">
-				<input type="text" id="uid" value="user1"
-					name="uid" class="form-control" placeholder="User ID..." />
-			</div>
-
-			<div class="form-group">
-				<input type="password" name="upw" id="upw" value="1234"
-					class="form-control" placeholder="Password..."/>
-			</div>
-			
-			<div class="form-group">
-			     <label for="useCookie">
-			         <input type="checkbox" id="useCookie" name="useCookie" value="true" /> Rememeber Me
-			     </label>
+				<input type="text" id="u_id" value="user1"
+					name="u_id" class="form-control" placeholder="User Email..." />
 			</div>
 		</div> <!-- .box-body -->
 		
@@ -26,6 +15,7 @@
 	
 	<div class="text-center">
 	   <a href="${ naver_url }"><img width="300" src="/resources/images/naver-login.png" alt="Naver Login" /></a>
+	   <a href="${ kakao_url }"><img width="300" src="/resources/images/kakao_login.png" alt="Kakao Login" /></a>
 	   <a href="${ google_url }"><img width="300" src="/resources/images/google-login.png" alt="Google Login" /></a>
 	</div>
 	

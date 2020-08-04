@@ -47,12 +47,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getBySns(User snsUser) {
-		if (StringUtils.isNotEmpty(snsUser.getNaverid())) {
-			return session.selectOne(GET_BY_SNS_NAVER, snsUser.getNaverid());
-		} else {
-			return session.selectOne(GET_BY_SNS_GOOGLE, snsUser.getGoogleid());
-		}
-		
+		return null;
 	}
 
 }

@@ -13,4 +13,6 @@ public interface UserService {
 	User checkLoginBefore(String value);
 
 	User getBySns(User snsUser);
+
+	User getUser(String snsName, String code);
 }
