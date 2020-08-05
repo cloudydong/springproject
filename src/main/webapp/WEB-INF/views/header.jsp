@@ -8,60 +8,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-div.sticky {
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+body{
+padding-top: 180px;
+}
+div.top {
   background-color: yellowgreen;
   padding: 30px;
-  font-size: 20px;
-  z-index: 1; 
   } 
 </style>
 </head>
 <body>
-<div class="col-sm-2"></div>
 
-	<div class="sticky col-sm-8">
+	<div class="row fixed-top">
+		<div class="col-2"></div>
+		<div class="col-8 top">
+				  
+		  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  <a class="navbar-brand" href="productList">ShoppingMallName</a>
+		  <ul class="navbar-nav">
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 1</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 2</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Link 3</a>
+		    </li>
+		  </ul>
+		</nav>
 		
-			<nav class="navbar navbar-inverse">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
-			    </div>
-			    <ul class="nav navbar-nav">
-			      <li><a href="#">Page 1</a></li>
-			      <li><a href="#">Page 2</a></li>
-			      <li><a href="#">Page 3</a></li>
-			    </ul>
-			  </div>
-			</nav>
-			
-			<div class="row" >
-			
-				<div class="col-sm-2"></div>
-				
-				<div class="col-sm-7" style="padding-right: 0">
-		    		<input id="search" type="text" class="form-control" placeholder="Search">
-		    	</div>
-		    	
-		    	<div class="col-sm-1" style="padding-left: 0">
-		      		<a href="productList?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
-		      	</div>	  
-		      	
-		      	<div class="col-sm-2"></div><br>
-		      	
-		    </div>
-		    
-		</div>
-		
-  <div class="col-sm-2"></div><br>
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-7" style="padding-right: 0">
+	    		<input id="search" type="text" class="form-control" placeholder="Search">
+	    	</div>
+	    	<div class="col-1" style="padding-left: 0">
+	      		<a href="productList?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
+	      	</div>	  
+	      	<div class="col-2"></div><br>
+	    </div>
+	    </div>
+	</div>
+	
+  	<div class="col-2"></div>
 
 </body>
 </html>
