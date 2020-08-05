@@ -5,14 +5,16 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UsersDTO {
-	private String u_id;
+	private Integer u_no;
+	private String id;
 	private String name;
 
 	public UsersDTO() {
 	}
 
-	public UsersDTO(String u_id, String name) {
-		this.u_id = u_id;
+	public UsersDTO(Integer u_no, String id, String name) {
+		this.u_no = u_no;
+		this.id = id;
 		this.name = name;
 	}
 

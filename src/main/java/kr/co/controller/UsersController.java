@@ -36,18 +36,20 @@ public class UsersController {
 		// OAuth2
 		String userId = usersService.createUserId(snsName, code);
 		UsersDTO dto = usersService.readUser(userId);
-
 		if (dto == null) {
 			usersService.createUser(userId);
+			Integer u_no = usersService.getU_noById(userId);
+			session.setAttribute("user", u_no);
 			return "users/join";
 		} else if (dto.getName() == null) {
+			Integer u_no = usersService.getU_noById(dto.getId());
+			session.setAttribute("user", u_no);
 			return "users/join";
 		} else {
 			model.addAttribute("result", dto.getName() + "님 반갑습니다.");
-			// 4. 존재시 강제로그인
 			session.setAttribute("loginUser", dto);
 		}
-		return "users/loginResult";
+		return "/users/loginResult";
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -55,14 +57,27 @@ public class UsersController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(String name, Model model) {
-		usersService.insertName(name);
+	public String join(String name, Model model, HttpSession session) {
+		Integer u_no =(Integer) session.getAttribute("user");
+		UsersDTO dto = new UsersDTO(u_no, null, name);
+		usersService.updateName(dto);
+		session.invalidate();
 		model.addAttribute("result", "다시한번 로그인 해주세요");
-		return "redirect:/users/loginResult";
+		return "redirect:/users/login";
 	}
+	//test
+	@RequestMapping(value = "/loginResult", method = RequestMethod.GET)
+	public void loginResult() {
+	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		session.invalidate();
+		// 로그아웃 버튼주소들
+		String kakaologoutURL = "https://developers.kakao.com/logout";
+		String naverlogoutURL = "https://nid.naver.com/nidlogin.logout?returl=https://www.naver.com";
+		//home 으로 가야함
 		return "/login";
 	}
 

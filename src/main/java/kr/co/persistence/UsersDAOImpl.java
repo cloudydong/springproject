@@ -21,12 +21,19 @@ public class UsersDAOImpl implements UsersDAO {
 
 	@Override
 	public void createUser(String userId) {
-		session.insert(NS + ".create", userId);
+		Integer u_no = session.selectOne(NS + ".getUno");
+		UsersDTO dto = new UsersDTO(u_no, userId, null);
+		session.insert(NS + ".create", dto);
 	}
 
 	@Override
-	public void insertName(String name) {
-		session.insert(NS+ ".insertName", name);
+	public void updateName(UsersDTO dto) {
+		session.update(NS + ".updateName", dto);
+	}
+
+	@Override
+	public Integer getU_noById(String userId) {
+		return session.selectOne(NS + ".getU_noById", userId);
 	}
 
 }

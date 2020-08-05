@@ -8,6 +8,8 @@ public interface UsersDAO {
 
 	void createUser(String userId);
 
-	void insertName(String name);
+	void updateName(UsersDTO dto);
 
+	Integer getU_noById(String userId);
+	
 }

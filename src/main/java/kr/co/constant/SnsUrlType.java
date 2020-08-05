@@ -4,6 +4,8 @@ public enum SnsUrlType {
 	GOOGLE_CLIENT_ID("623303515879-49jko2pmshcjll86v28smkqc3pf3be9g.apps.googleusercontent.com"),
 	GOOGLE_CLIENT_SECRET("LQ8DEeFpJPFWAqD67J8dexyZ"),
 	GOOGLE_REDIRECT_URL("http://localhost:8089/users/auth/google/callback"),
+	GOOGLE_ACCESS_TOKEN("https://www.googleapis.com/oauth2/v4/token?grant_type=authorization_code"),
+	GOOGLE_AUTHORIZE("https://accounts.google.com/o/oauth2/auth"),
 	GOOGLE_RESOURCE_URL("https://openidconnect.googleapis.com/v1/userinfo"),
 	
 	NAVER_CLIENT_ID("zXOm_uGtKBOA_ugnwdwz"),
