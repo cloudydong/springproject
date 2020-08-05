@@ -26,10 +26,7 @@ div.sticky {
   padding: 30px;
   font-size: 20px;
   z-index: 1; 
-  }      
-div.image{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }    
+  }  
 </style>
 </head>
 
@@ -42,7 +39,7 @@ div.image{
 			<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-			      <a class="navbar-brand" href="ProductList">ShoppingMallName</a>
+			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
 			    </div>
 			    <ul class="nav navbar-nav">
 			      <li><a href="#">Page 1</a></li>
@@ -61,7 +58,7 @@ div.image{
 		    	</div>
 		    	
 		    	<div class="col-sm-1" style="padding-left: 0">
-		      		<a href="world?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
+		      		<a href="productList?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
 		      	</div>	  
 		      	
 		      	<div class="col-sm-2"></div><br>
@@ -78,7 +75,7 @@ div.image{
 					<div class="card-body">
 						<div class="text-center">
 							<br>
-							<div id="image"></div>
+							<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
 						</div>
 					</div>
 				</div>
@@ -162,7 +159,7 @@ div.image{
 		  if (event.keyCode === 13) {
 			  //console.log('엔터입력!!', event.keyCode);
 			  //loadDoc(search.value);
-			  document.location.href = "ProductList?searchValue="+search.value;
+			  document.location.href = "productList?searchValue="+search.value;
 		  }
 		});
 	});

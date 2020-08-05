@@ -49,7 +49,7 @@
 			<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-			      <a class="navbar-brand" href="ProductList">ShoppingMallName</a>
+			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
 			    </div>
 			    <ul class="nav navbar-nav">
 			      <li><a href="#">Page 1</a></li>
@@ -97,7 +97,7 @@
 						<div class="card-body">
 							<h2 id="pname"></h2>   
 							<br>
-							<h1 id="price"></h1>
+							<h1 id="SalePrice"></h1>
 						</div>
 					</div>
 				</div>
@@ -134,9 +134,7 @@
 
 		let str = "";
 
-		let BuySatisfy = xmlDoc.getElementsByTagName("BuySatisfy")[0].firstChild.data;
-
-		let SalePrice = xmlDoc.getElementsByTagName("SalePrice")[0].firstChild.data;
+		let price = xmlDoc.getElementsByTagName("ProductPrice")[i].firstChild.data;
 
 		let image1 = xmlDoc.getElementsByTagName("ProductImage300")[0].firstChild.data;
 		
@@ -152,8 +150,8 @@
 			let pname = xmlDoc.getElementsByTagName("ProductName")[i].firstChild.data;
 			//document.getElementById("pname").innerHTML = pname;
 
-			let price = xmlDoc.getElementsByTagName("ProductPrice")[i].firstChild.data;
-			//document.getElementById("price").innerHTML = price;
+			let SalePrice = xmlDoc.getElementsByTagName("SalePrice")[0].firstChild.data;
+			//document.getElementById("SalePrice").innerHTML = SalePrice;
 
 			let image = xmlDoc.getElementsByTagName("ProductImage200")[i].firstChild.data;
 			//var img = document.createElement("img"); 
@@ -166,13 +164,12 @@
 						+ '<img src="'+image+'">' 
 						
 						 + '<div class="contained">'
-							+ '<p id="pname"><a href=ProductInfo?'
-							+ 'ProductCode='+code+'&ProductImage300='+image1+''
-							+ '&BuySatisfy='+BuySatisfy+'&SalePrice='+SalePrice+'&ProductPrice='+price+''
+							+ '<p id="pname"><a href=productInfo?'
+							+ 'ProductCode='+code+''
 							+ '">'
 							+ pname + '</a></p>'
 							+ '<h4 id="price">'
-							+ price + '원</h4>' 
+							+ SalePrice + '원</h4>' 
 						 + '</div>'
 						 
 					+ '</div>'
