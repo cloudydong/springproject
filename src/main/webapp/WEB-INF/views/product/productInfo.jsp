@@ -23,7 +23,8 @@ body {
 		
 	<div class="container" id="container">
 		<div class="row">
-
+			<div class="col-1"></div>
+		
 			<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
 			
 			<div class="col-2"></div>
@@ -34,7 +35,7 @@ body {
 						<h2 id="pname"></h2>  
 						<div class="row">
 							<div class="col-sm-6"><h2 id="SalePrice"></h2></div>
-							<div class="col-sm-5"><h3 style="color: grey"><del id="price"></del></h3></div>
+							<div class="col-sm-5"><h4 style="color: grey;padding-top: 5px"><del id="price"></del></h4></div>
 						</div>
 						<div id="btnCart" class="btn btn-primary"></div>
 						<div id="btnBuy" class="btn btn-danger"></div> 
