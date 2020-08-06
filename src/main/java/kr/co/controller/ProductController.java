@@ -28,13 +28,15 @@ public class ProductController {
 	
 	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
 	public void ProductInfo(String ProductCode, String SalePrice,String ProductPrice, String ProductImage300, Model model) {
-	}
-	
-	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
-	public void ProductInfo(String ProductCode, Model model) {
-
 		model.addAttribute("ProductCode", ProductCode);
 	}
+	
+	/*
+	 * @RequestMapping(value = "/productInfo", method = RequestMethod.GET) public
+	 * void ProductInfo(String ProductCode, Model model) {
+	 * 
+	 * }
+	 */
 	
 	@RequestMapping(value = "/select/{p_no}", method = RequestMethod.GET)
 	public String selectOne(Model model, @PathVariable Integer p_no) {
