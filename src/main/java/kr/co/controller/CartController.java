@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.domain.CartDTO;
 import kr.co.domain.UsersDTO;
@@ -39,12 +38,9 @@ public class CartController {
 		return "redirect:/cart/list";
 	}
 
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public void insert() {
-	}
-
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(HttpSession session, CartDTO dto) {
+		// dto.count와 dto.c_no 만 사용+ user.u_no
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		if (dto == null)
 			return "redirect:/users/login";
@@ -52,10 +48,6 @@ public class CartController {
 		dto.setU_no(u_no);
 		cartService.update(dto);
 		return "redirect:/cart/list";
-	}
-
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public void update() {
 	}
 
 	@RequestMapping(value = "/delete/{c_no}", method = RequestMethod.GET)

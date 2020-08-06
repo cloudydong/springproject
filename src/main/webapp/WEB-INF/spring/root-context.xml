@@ -21,19 +21,17 @@
 		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url"></property>
 		<property value="kpang" name="username"></property>
 		<property value="cpang" name="password"></property>
-
 	</bean>
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property ref="dataSource" name="dataSource"></property> <!-- 위 dataSource 참조 -->
-		<property value="classpath:/mybatis-config.xml"
-			name="configLocation"></property> <!-- configlocation 환경설정의 위치 -->
-		<property value="classpath:mappers/**/*Mapper.xml"
-			name="mapperLocations"></property>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property ref="dataSource" name="dataSource"></property>
+		<property value="classpath:/mybatis-config.xml" name="configLocation"></property>
+		<property value="classpath:mappers/**" name="mapperLocations"></property>
+	</bean>
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" name="sqlSessionFactory"></constructor-arg>
 	</bean>
 
-	
-	
 	<!-- service -->
 	<context:component-scan base-package="kr.co.service"/>
 	<context:component-scan base-package="com.naver.Controller"/>
@@ -41,10 +39,8 @@
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
-	<context:component-scan
-		base-package="kr.co.service" />
-	<context:component-scan
-		base-package="kr.co.persistence" />
+	<context:component-scan base-package="kr.co.service" />
+	<context:component-scan base-package="kr.co.persistence" />
 	<context:component-scan base-package="kr.co.aop" />
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<bean id="transactionManager"
