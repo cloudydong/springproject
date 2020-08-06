@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="c.r.t">
+	<select id="list" resultType="CartDTO">
+		select * from cart
+	</select>
+
+	<insert id="insert">
+		<![CDATA[
+		insert into cart (
+		c_no, pName, pPrice, pImage, sellerNick,
+		seller, detailPageUrl, salePrice, delivery, 
+		buySatisfy, discount, mileage, u_no, count) 
+		values (
+		#{c_no}, #{pName}, #{pPrice}, #{pImage}, #{sellerNick},
+		#{seller}, #{detailPageUrl},#{salePrice}, #{delivery},
+		#{buySatisfy}, #{discount}, #{mileage}, #{u_no}, #{count})
+		]]>
+	</insert>
+
+	<update id="update">
+		<![CDATA[
+		update cart set count = #{count}
+		where c_no = #{c_no} and id= #{u_no})
+		]]>
+	</update>
+
+	<delete id="delete">
+		delete from cart where id=#{u_no} and c_no =#{c_no}
+	</delete>
+
+</mapper>

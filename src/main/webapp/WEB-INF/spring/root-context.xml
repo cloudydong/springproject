@@ -14,6 +14,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
+<<<<<<< HEAD
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -23,6 +24,15 @@
 			name="url"></property>
 		<property value="ca" name="username"></property>
 		<property value="ca" name="password"></property>
+=======
+	 
+	<!-- DB -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property value="oracle.jdbc.driver.OracleDriver" name="driverClassName"></property>
+		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url"></property>
+		<property value="kpang" name="username"></property>
+		<property value="cpang" name="password"></property>
+>>>>>>> 0054ec9378a135317950820833c9b4434c53c554
 	</bean>
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -32,6 +42,7 @@
 		<property value="classpath:mappers/**/*Mapper.xml"
 			name="mapperLocations"></property>
 	</bean>
+<<<<<<< HEAD
 
 
 
@@ -39,6 +50,23 @@
 		id="sqlSession">
 		<constructor-arg ref="sqlSessionFactory"
 			name="sqlSessionFactory"></constructor-arg>
+=======
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" name="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	
+	<!-- service -->
+	<context:component-scan base-package="kr.co.service"/>
+	<context:component-scan base-package="com.naver.Controller"/>
+	<context:component-scan base-package="kr.co.persistence"/>
+	<aop:aspectj-autoproxy/>
+	
+	<!-- transaction -->
+	<!--  
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"></property>
+>>>>>>> 0054ec9378a135317950820833c9b4434c53c554
 	</bean>
 
 	<context:component-scan
