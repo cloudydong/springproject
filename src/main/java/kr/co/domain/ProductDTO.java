@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CartDTO {
-	private Integer c_no;
+public class ProductDTO {
+	private Integer p_no;
 	private String pName;
 	private String pPrice;
-	private String pImage;
+	private String detailText;
 	private String sellerNick;
 	private String seller;
 	private String detailPageUrl;
@@ -18,20 +18,18 @@ public class CartDTO {
 	private String buySatisfy;
 	private String discount;
 	private String mileage;
-	private Integer u_no;
-	private String count;
-	
-	public CartDTO() {
+	private Integer Invntry;
+
+	public ProductDTO() {
 	}
 
-	public CartDTO(Integer c_no, String pName, String pPrice, String pImage, String sellerNick, String seller,
+	public ProductDTO(Integer p_no, String pName, String pPrice, String detailText, String sellerNick, String seller,
 			String detailPageUrl, String salePrice, String delivery, String buySatisfy, String discount, String mileage,
-			Integer u_no, String count) {
-		super();
-		this.c_no = c_no;
+			Integer invntry) {
+		this.p_no = p_no;
 		this.pName = pName;
 		this.pPrice = pPrice;
-		this.pImage = pImage;
+		this.detailText = detailText;
 		this.sellerNick = sellerNick;
 		this.seller = seller;
 		this.detailPageUrl = detailPageUrl;
@@ -40,8 +38,7 @@ public class CartDTO {
 		this.buySatisfy = buySatisfy;
 		this.discount = discount;
 		this.mileage = mileage;
-		this.u_no = u_no;
-		this.count = count;
+		Invntry = invntry;
 	}
 
 }
