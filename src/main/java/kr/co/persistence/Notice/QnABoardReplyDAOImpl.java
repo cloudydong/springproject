@@ -7,9 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.domain.LoginDTO;
+
 import kr.co.domain.ServiceCenter.*;
-import kr.co.domain.UserDTO;
 
 @Repository
 

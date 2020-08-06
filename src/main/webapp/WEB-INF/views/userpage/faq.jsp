@@ -49,7 +49,7 @@
 					<c:forEach items="${list}" var="dto">
 						<tr>
 							<td>${dto.bno}</td>
-							<td><a href="/userpage/FAQread/${dto.bno}">${dto.title}</a></td>
+							<td><a href="/userpage/faqread/${dto.bno}">${dto.title}</a></td>
 							<td>${dto.writer}</td>
 							<td>${dto.regDate}</td>
 							<td>${dto.viewcnt}</td>
@@ -63,7 +63,7 @@
 			</table>
 		</div>
 		<div class="row">
-			<form target="_blank" action="/userpage/FAQsearchlist" method = "get">
+			<form target="_blank" action="/userpage/faqsearchlist" method = "get">
 				<div class="input-group">
 					<span class="input-group-addon"> <select name="searchType">
 							<option disabled>검색 기준</option>
@@ -90,14 +90,14 @@
 		<div class="row text-center">
 			<nav aria-label="Page navigation">
 				<ul class="pagination">
-					<li><a href="/userpage/FAQ?curPage=${to.curPage > 1? to.curPage-1 : 1}" aria-label="Previous"> <span
+					<li><a href="/userpage/faq?curPage=${to.curPage > 1? to.curPage-1 : 1}" aria-label="Previous"> <span
 							aria-hidden="true">&laquo;</span>
 					</a></li>
 					<c:forEach begin ="${to.beginPageNum}" end = "${to.stopPageNum}" var = "page">
-					<li class = "${to.curPage == page?'active' :''}"><a href="userpage/FAQ?curPage=${page}">${page}</a>
+					<li class = "${to.curPage == page?'active' :''}"><a href="userpage/faq?curPage=${page}">${page}</a>
 					</c:forEach>
 					
-					<li><a href="userpage/FAQ?curPage=${to.curPage < to.totalPage ? to.curPage+1 : to.totalPage}"aria-label="Next"> 
+					<li><a href="userpage/faq?curPage=${to.curPage < to.totalPage ? to.curPage+1 : to.totalPage}"aria-label="Next"> 
 						<span aria-hidden="true">&raquo;</span>
 					</a></li>
 				</ul>

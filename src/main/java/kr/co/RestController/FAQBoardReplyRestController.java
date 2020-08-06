@@ -15,7 +15,7 @@ import kr.co.domain.ServiceCenter.*;
 import kr.co.service.Notice.*;
 
 @RestController
-public class QnABoardReplyRestController {
+public class FAQBoardReplyRestController {
 	@Inject
 	private QnABoardReplyService qSerivce;
 	

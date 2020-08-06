@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.domain.LoginDTO;
+
 import kr.co.domain.ServiceCenter.*;
 
-import kr.co.domain.UserDTO;
+import kr.co.domain.UsersDTO;
 import kr.co.persistence.Notice.*;
 import kr.co.persistence.Notice.*;
-import kr.co.persistence.UserDAO;
+
 
 @Service
 public class QnABoardServiceImpl implements QnABoardService{
@@ -58,10 +58,5 @@ public class QnABoardServiceImpl implements QnABoardService{
 	public List<QnABoardVO> searchlist(String searchType, String keyword) {
 		// TODO Auto-generated method stub
 		return qDao.searchlist(searchType,keyword);
-	}
-	@Override
-	public UserDTO loginpost(LoginDTO login) {
-		// TODO Auto-generated method stub
-		return qDao.loginpost(login);
 	}
 }
