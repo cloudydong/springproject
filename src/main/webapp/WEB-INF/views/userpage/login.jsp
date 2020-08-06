@@ -27,12 +27,7 @@ background-image:url(image/sky.png);
 	top:50%;
 	left:45%;
 	margin:-200px 0 0 -50px;
-	
-	
-
 }
-
-
 </style>
 <body>
 <div class = "container">
@@ -50,7 +45,5 @@ background-image:url(image/sky.png);
 	<button type="submit" class ="btn btn-default">login</button>
 </form>
 </div>
-</body>
-</html>
 </body>
 </html>
