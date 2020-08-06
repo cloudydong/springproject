@@ -1,9 +1,14 @@
 package kr.co.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +25,32 @@ import kr.co.service.CartService;
 public class CartController {
 	@Autowired
 	private CartService cartService;
-
+	
+	@RequestMapping(value = "/additem", method = RequestMethod.GET)
+	public void additem(Model model, String productCode) {
+		productCode = "1257255094";
+		String url = new StringBuffer().append("https://openapi.11st.co.kr/openapi/OpenApiService.tmall")
+				.append("?key=4a972a13f9e22b164bbe473d226d2dd3")
+				.append("&apiCode=ProductSearch")
+				.append("&keyword=").append(productCode) // 필수
+				.append("&pageSize=1")// 선택적 항목 검색
+				.toString();
+		try {	
+			Document doc = Jsoup.connect(url).get();
+			Element body = doc.getElementById("body");
+			Elements elements = doc.select("ProductName");
+			 for (Element e : elements) {
+		            System.out.println(e.text());
+		        }
+			System.out.println(doc);
+			System.out.println(body);
+			int a = 0;
+			System.out.println(a);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) {
 		List<CartDTO> list = cartService.selectList();

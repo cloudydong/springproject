@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CartDTO {
-	private String c_no;
+	private Integer c_no;
 	private String pName;
 	private String pPrice;
 	private String pImage;
@@ -24,7 +24,7 @@ public class CartDTO {
 	public CartDTO() {
 	}
 
-	public CartDTO(String c_no, String pName, String pPrice, String pImage, String sellerNick, String seller,
+	public CartDTO(Integer c_no, String pName, String pPrice, String pImage, String sellerNick, String seller,
 			String detailPageUrl, String salePrice, String delivery, String buySatisfy, String discount, String mileage,
 			Integer u_no, String count) {
 		super();
