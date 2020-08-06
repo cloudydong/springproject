@@ -7,8 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,47 +23,49 @@ import kr.co.service.CartService;
 public class CartController {
 	@Autowired
 	private CartService cartService;
-	
-	@RequestMapping(value = "/additem", method = RequestMethod.GET)
-	public void additem(Model model, String productCode) {
+
+	@RequestMapping(value = "/add/{productCode}", method = RequestMethod.GET)
+	public String additem(HttpSession session, @PathVariable String productCode) {
 		productCode = "1257255094";
 		String url = new StringBuffer().append("https://openapi.11st.co.kr/openapi/OpenApiService.tmall")
-				.append("?key=4a972a13f9e22b164bbe473d226d2dd3")
-				.append("&apiCode=ProductSearch")
-				.append("&keyword=").append(productCode) // 필수
+				.append("?key=4a972a13f9e22b164bbe473d226d2dd3").append("&apiCode=ProductSearch").append("&keyword=")
+				.append(productCode) // 필수
 				.append("&pageSize=1")// 선택적 항목 검색
 				.toString();
-		try {	
+		try {
 			Document doc = Jsoup.connect(url).get();
-			Element body = doc.getElementById("body");
-			Elements elements = doc.select("ProductName");
-			 for (Element e : elements) {
-		            System.out.println(e.text());
-		        }
-			System.out.println(doc);
-			System.out.println(body);
-			int a = 0;
-			System.out.println(a);
+			String pName = doc.select("ProductName").text();
+			String pPrice = doc.select("ProductPrice").text();
+			String pImage = doc.select("ProductImage150").text();
+			String sellerNick = doc.select("SellerNick").text();
+			String seller = doc.select("Seller").text();
+			String detailPageUrl = doc.select("DetailPageUrl").text();
+			String salePrice = doc.select("SalePrice").text();
+			String delivery = doc.select("Delivery").text();
+			String buySatisfy = doc.select("BuySatisfy").text();
+			String discount = doc.select("Discount").text();
+			String mileage = doc.select("Mileage").text();
+			String count = doc.select("TotalCount").text();
+			CartDTO dto = new CartDTO(null, pName, pPrice, pImage, sellerNick, seller, detailPageUrl, salePrice,
+					delivery, buySatisfy, discount, mileage, null, count);
+			UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
+			if (user == null) {
+				return "redirect:/users/login";
+			}
+			Integer u_no = user.getU_no();
+			dto.setU_no(u_no);
+			cartService.insert(dto);
 		} catch (IOException e) {
-			e.printStackTrace();
+			return "redirect:/cart/list";
 		}
-	}
+		return "redirect:/cart/list";
 	
+	}
+
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) {
 		List<CartDTO> list = cartService.selectList();
 		model.addAttribute("cartList", list);
-	}
-
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insert(HttpSession session, CartDTO dto) {
-		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
-		if (dto == null)
-			return "redirect:/users/login";
-		Integer u_no = user.getU_no();
-		dto.setU_no(u_no);
-		cartService.insert(dto);
-		return "redirect:/cart/list";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
