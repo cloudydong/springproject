@@ -83,12 +83,12 @@ public enum SnsUrlGroup {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		// HttpBody 
-		MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("client_id", clientId);
 		params.add("client_secret", clientSecret);
 		params.add("redirect_uri", redirectUrl);
 		params.add("code", code);
-		HttpEntity<MultiValueMap<String, String>> tokenRequest = new HttpEntity<>(params, headers);
+		HttpEntity<MultiValueMap<String, String>> tokenRequest = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		
 		ResponseEntity<String> response = rt.exchange(accessTokenUrl, METHOD, tokenRequest, String.class);
 		String body = response.getBody();
