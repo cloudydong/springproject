@@ -41,7 +41,7 @@ $(document).ready(function(){
 		    if ( rsp.success ) {
 		    	//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
 		    	jQuery.ajax({
-		    		url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
+		    		url: "/payresult", //cross-domain error가 발생하지 않도록 주의해주세요
 		    		type: 'POST',
 		    		dataType: 'json',
 		    		data: {

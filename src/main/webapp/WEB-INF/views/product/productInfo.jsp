@@ -13,91 +13,36 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>product</title>
 <style type="text/css">
-hr {
-    height: 0px;
-    border: none;
-    border-top: 1px solid black;
-   }
-div.sticky {
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: yellowgreen;
-  padding: 30px;
-  font-size: 20px;
-  z-index: 1; 
-  }  
+body {
+	padding-top: 180px;
+}       
 </style>
 </head>
-
 <body>
-	<%@ include file = "/WEB-INF/views/header.jsp" %>
-	
-	<div class="col-sm-2"></div>
-
-	<div class="sticky col-sm-8">
-	
-			<nav class="navbar navbar-inverse">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
-			    </div>
-			    <ul class="nav navbar-nav">
-			      <li><a href="#">Page 1</a></li>
-			      <li><a href="#">Page 2</a></li>
-			      <li><a href="#">Page 3</a></li>
-			    </ul>
-			  </div>
-			</nav>
-			
-			<div class="row" >
-			
-				<div class="col-sm-2"></div>
-				
-				<div class="col-sm-7" style="padding-right: 0">
-		    		<input id="search" type="text" class="form-control" placeholder="Search">
-		    	</div>
-		    	
-		    	<div class="col-sm-1" style="padding-left: 0">
-		      		<a href="productList?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
-		      	</div>	  
-		      	
-		      	<div class="col-sm-2"></div><br>
-		    </div>
-		    
-		</div>
-		
+		<%@ include file = "/WEB-INF/views/header.jsp" %>
 		
 	<div class="container" id="container">
 		<div class="row">
-
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-						<div class="text-center">
-							<br>
-							<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="col-1"></div>
+		
+			<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
 			
-			<div class="col-sm-2"></div>
+			<div class="col-2"></div>
 
-			<div class="col-sm-4">
-				<div class="card">
+			<div class="col-4">
+				<div id="box" class="card invisible">
 					<div class="card-body">
 						<h2 id="pname"></h2>  
 						<div class="row">
 							<div class="col-sm-6"><h2 id="SalePrice"></h2></div>
-							<div class="col-sm-5"><h3 style="color: grey"><del id="price"></del></h3></div>
+							<div class="col-sm-5"><h4 style="color: grey;padding-top: 5px"><del id="price"></del></h4></div>
 						</div>
-						<div id="btnCart" class="btn btn-primary hidden"></div>
-						<div id="btnBuy" class="btn btn-danger hidden"></div> 
+						<div id="btnCart" class="btn btn-primary"></div>
+						<div id="btnBuy" class="btn btn-danger"></div> 
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 
@@ -143,10 +88,12 @@ div.sticky {
 		}
 
 		document.getElementById("btnCart").innerHTML = "장바구니에 담기";
-		document.getElementById("btnCart").setAttribute("class", "btn btn-primary");
+		//document.getElementById("btnCart").setAttribute("class", "btn btn-primary");
 		
 		document.getElementById("btnBuy").innerHTML = "바로 구매하기";
-		document.getElementById("btnBuy").setAttribute("class", "btn btn-danger");
+		//document.getElementById("btnBuy").setAttribute("class", "btn btn-danger");
+
+		document.getElementById("box").setAttribute("class", "card");
 
 	}
 
@@ -163,7 +110,7 @@ div.sticky {
 			  //loadDoc(search.value);
 			  document.location.href = "productList?searchValue="+search.value;
 		  }
-		});
+		}); 
 	});
 
 </script>

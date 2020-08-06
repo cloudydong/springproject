@@ -12,9 +12,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	 
+
 	<!-- DB -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property value="oracle.jdbc.driver.OracleDriver" name="driverClassName"></property>
@@ -22,6 +22,7 @@
 		<property value="kpang" name="username"></property>
 		<property value="cpang" name="password"></property>
 	</bean>
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property ref="dataSource" name="dataSource"></property>
 		<property value="classpath:/mybatis-config.xml" name="configLocation"></property>
@@ -30,8 +31,7 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" name="sqlSessionFactory"></constructor-arg>
 	</bean>
-	
-	
+
 	<!-- service -->
 	<context:component-scan base-package="kr.co.service"/>
 	<context:component-scan base-package="com.naver.Controller"/>
@@ -39,10 +39,14 @@
 	<aop:aspectj-autoproxy/>
 	
 	<!-- transaction -->
-	<!--  
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-			<property name="dataSource" ref="dataSource"></property>
+	<context:component-scan base-package="kr.co.service" />
+	<context:component-scan base-package="kr.co.persistence" />
+	<context:component-scan base-package="kr.co.aop" />
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	-->
+	<tx:annotation-driven />
+
 </beans>

@@ -20,4 +20,8 @@ public class PayController {
 	public void Naverpay() {
 		
 	}
+	@RequestMapping(value = "payresult",method = RequestMethod.GET)
+	public void payresult() {
+		
+	}
 }
