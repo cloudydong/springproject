@@ -1,18 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>product</title>
-<style type="text/css">
+
+<!-- <style type="text/css">
   hr {
     height: 0px;
     border: none;
@@ -39,19 +34,95 @@
   text-align: center;
   padding: 10px 20px;
   }
-</style>
+</style> -->
+
+
+<title>Shoppers</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+<link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+
+
+<link rel="stylesheet" href="/resources/css/aos.css">
+
+<link rel="stylesheet" href="/resources/css/style.css">
+
 </head>
 
 <body>
-	<%@ include file = "/WEB-INF/views/header.jsp" %>
-		<div class="col-sm-2"></div>
+	<div class="site-wrap">
+		<header class="site-navbar" role="banner">
+			<div class="site-navbar-top">
+				<div class="container">
+					<div class="row align-items-center">
+						
+
+
+					</div>
+				</div>
+			</div>
+
+<div class="row fixed-top">
+			<div class="col-2"></div>
+			<div class="col-8 top">
+			
+
+				<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+					<a class="navbar-brand" href="/product/productList">ShoppingMallName</a>
+					<ul class="navbar-nav text-left">
+						<li class="nav-item"><a class="nav-link" href="/"><span
+								class="glyphicon glyphicon-home"></span></a></li>
+						<li class="nav-item"><a class="nav-link" href="/users/login"><span
+								class="icon icon-person"></span></a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><span
+								class="icon icon-shopping_cart"></span> <span class="count">2</span></a>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-7" style="padding-right: 0">
+						<input id="search" type="text" class="form-control"
+							placeholder="Search">
+					</div>
+					<div class="col-1" style="padding-left: 0">
+						<a href="productList?searchValue="><button
+								class="btn btn-info btn-block" type="button">Go</button></a>
+					</div>
+					<div class="col-2"></div>
+					<br>
+				</div>
+			</div>
+			</nav>
+		</div>
+
+
+			</nav>
+
+			
+
+		</header>
+
+
+		<!-- <div class="col-sm-2"></div>
 
 		<div class="sticky col-sm-8">
 
 			<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
-			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
+			      <a class="navbar-brand" href="/product/productList">ShoppingMallName</a>
 			    </div>
 			    <ul class="nav navbar-nav">
 			      <li><a href="#">Page 1</a></li>
@@ -77,9 +148,9 @@
 		<div class="text-center">
 			<h1 id="no"></h1>
 			<h1 id="ne"></h1>
-		</div>
-		
-		<div class="container" id="container">
+		</div> -->
+
+		<!-- <div class="container" id="container">
 			<div class="row">
 	
 				<div class="col-sm-4">
@@ -104,10 +175,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
+		
 </body>
-
+<%@ include file="/WEB-INF/views/footer.jsp"%>
 <script type="text/javascript">
 
 		function loadDoc(value = '${searchValue}') {
