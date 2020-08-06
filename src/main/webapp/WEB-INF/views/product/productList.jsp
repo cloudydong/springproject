@@ -18,19 +18,9 @@
     border: none;
     border-top: 1px solid black;
   }
-  div.sticky {
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: yellowgreen;
-  padding: 30px;
-  font-size: 20px;
-  z-index: 1; 
-  }   
   div.polaroid {
   text-align: center;
-  width: 20%;
+  width: 21%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -43,44 +33,58 @@
 </head>
 
 <body>
-	<%@ include file = "/WEB-INF/views/header.jsp" %>
-		<div class="col-sm-2"></div>
+<%@ include file = "/WEB-INF/views/header.jsp" %>
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('https://i.kym-cdn.com/entries/icons/facebook/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">First Slide</h3>
+          <p class="lead">This is a description for the first slide.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://res.cloudinary.com/teepublic/image/private/s--hMz0d2TZ--/c_crop,x_10,y_10/c_fit,w_1109/c_crop,g_north_west,h_945,w_1260,x_-76,y_-99/co_rgb:ffb81c,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_945,w_1260/fl_layer_apply,g_north_west,x_-76,y_-99/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1559034692/production/designs/4942585_0.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">Second Slide</h3>
+          <p class="lead">This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://1.bp.blogspot.com/-QqSQUJ0p7KI/Xhtu9JlTsKI/AAAAAAAATis/jtYArK7l3E0M3KCjexOFNNH7pGYhl5SEgCLcBGAsYHQ/w914-h514-p-k-no-nu/anime-sky-scenery-sunrise-uhdpaper.com-4K-4.2371-wp.thumbnail.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="display-4">Third Slide</h3>
+          <p class="lead">This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+<!-- Page Content
+<section class="py-5">
+  <div class="container">
+    <h1 class="font-weight-light">Half Page Image Slider</h1>
+    <p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
+  </div>
+</section> -->
 
-		<div class="sticky col-sm-8">
-
-			<nav class="navbar navbar-inverse">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="productList">ShoppingMallName</a>
-			    </div>
-			    <ul class="nav navbar-nav">
-			      <li><a href="#">Page 1</a></li>
-			      <li><a href="#">Page 2</a></li>
-			      <li><a href="#">Page 3</a></li>
-			    </ul>
-			  </div>
-			</nav>
-		
-			<div class="row1">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-7" style="padding-right: 0">
-		    		<input id="search" type="text" class="form-control" placeholder="Search">
-		    	</div>
-		    	<div class="col-sm-1" style="padding-left: 0">
-		      		<button class="btn btn-success btn-block" type="button" onclick="loadDoc(search.value);">Go</button>
-		      	</div>	  
-		      	<div class="col-sm-2"></div><br>
-		    </div>
-		    
-		</div>
-		
-		<div class="text-center">
-			<h1 id="no"></h1>
-			<h1 id="ne"></h1>
-		</div>
-		
 		<div class="container" id="container">
-			<div class="row">
+		
+			 <div class="row">
 	
 				<div class="col-sm-4">
 					<div class="card">
@@ -91,7 +95,7 @@
 						</div>
 					</div>
 				</div>
-	
+				
 				<div class="col-sm-2"></div>
 	
 				<div class="col-sm-4">
@@ -104,8 +108,12 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 
 
+		<div class="text-center">
+			<h3 id="no"></h3>
+			<h3 id="ne"></h3>
+		</div>
 </body>
 
 <script type="text/javascript">
@@ -136,12 +144,12 @@
 
 		let str = "";
 
-		let price = xmlDoc.getElementsByTagName("ProductPrice")[i].firstChild.data;
+		//let price = xmlDoc.getElementsByTagName("ProductPrice")[0].firstChild.data;
 
-		let image1 = xmlDoc.getElementsByTagName("ProductImage300")[0].firstChild.data;
+		//let image1 = xmlDoc.getElementsByTagName("ProductImage300")[0].firstChild.data;
 		
 		if(product.length == 0){ //검색결과 없을때
-			document.getElementById("no").innerHTML = "'"+search.value+"'"+" 에대한 검색결과가 없습니다";
+			document.getElementById("no").innerHTML = "*"+search.value+"*"+" 에대한 검색결과가 없습니다";
 			document.getElementById("ne").innerHTML = "새로고침 하거나 다시 검색하세요";
 		}
 
@@ -152,7 +160,7 @@
 			let pname = xmlDoc.getElementsByTagName("ProductName")[i].firstChild.data;
 			//document.getElementById("pname").innerHTML = pname;
 
-			let SalePrice = xmlDoc.getElementsByTagName("SalePrice")[0].firstChild.data;
+			let SalePrice = xmlDoc.getElementsByTagName("SalePrice")[i].firstChild.data;
 			//document.getElementById("SalePrice").innerHTML = SalePrice;
 
 			let image = xmlDoc.getElementsByTagName("ProductImage200")[i].firstChild.data;
@@ -160,23 +168,43 @@
 			//img.setAttribute("src", image);
 			//document.getElementById("image").append(img);
 			
-			 str += '<div class="row">' 
+			 str += '<div class="row">'
+				 + '<div class="card" style="width:300px">'
+					 + '<div id=image>'
+				   		 + '<img class="card-img-top" src="'+image+'">'
+				 	 + '</div>'
+				    + '<div class="card-body">'
+				      + '<p class="card-title" id="pname">'
+					  + '<a href="productInfo?'
+					  + 'ProductCode='+code+''
+					  + '">'	  	  	
+				      + pname + '</a></p>'
+				      + '<h4 id="Saleprice" class="card-text">'
+				      + SalePrice + '원</h4>'
+				    + '</div>'
+				  + '</div>'
+				  + '</div>';
 
-					+ '<div class="polaroid" id="image">'
-						+ '<img src="'+image+'">' 
+
+				  /* '<div class="row">' 
+
+						+ '<div class="polaroid" id="image">'
+							+ '<img src="'+image+'">' 
+							
+							 + '<div class="contained">'
+								+ '<p id="pname"><a href="world2?'
+								+ 'ProductCode='+code+''
+								+ '">'
+								+ pname + '</a></p>'
+								+ '<h4 id="Saleprice">'
+								+ SalePrice + '원</h4>' 
+							 + '</div>'
+							 
+						+ '</div>'
 						
-						 + '<div class="contained">'
-							+ '<p id="pname"><a href=productInfo?'
-							+ 'ProductCode='+code+''
-							+ '">'
-							+ pname + '</a></p>'
-							+ '<h4 id="price">'
-							+ SalePrice + '원</h4>' 
-						 + '</div>'
-						 
-					+ '</div>'
-					
-				+ '</div>';
+				+ '</div>'; */
+
+			 
 		}
 		container.innerHTML = str;
 	}
@@ -193,7 +221,7 @@
 			  //console.log('엔터입력!!', event.keyCode);
 			  loadDoc(search.value);
 		  }
-		});
+		}); 
 	});
 </script>
 
