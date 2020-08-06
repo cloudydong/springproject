@@ -5,14 +5,22 @@
 <mapper namespace="users.domain">
 
 	<select id="read" resultType="kr.co.domain.UsersDTO">
-		select * from users where u_id= #{userId}
-    </select>
-    
+		select * from users where id = #{id}
+	</select>
+
 	<insert id="create">
-		insert into users(u_id) values (#{userId})
-	</insert>  
-	
-	<insert id="insertName">
-		insert into users(name) values (#{name})
+		insert into users(u_no, id) values (#{u_no}, #{id})
 	</insert>
+
+	<update id="updateName">
+		update users set name = #{name} where u_no = #{u_no}
+	</update>
+	
+	<select id="getU_noById" resultType="Integer">
+		select u_no from users where id = #{id}
+	</select>
+	
+	<select id="getUno" resultType="Integer">
+		select NVL2(max(u_no),max(u_no)+1, 1) from users
+	</select>
 </mapper>
