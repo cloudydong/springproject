@@ -69,40 +69,6 @@
 </head>
 <body>
 
-<!-- 	<div class="row fixed-top">
-		<div class="col-2"></div>
-		<div class="col-8 top">
-				  
-		  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		  <a class="navbar-brand" href="world">ShoppingMallName</a>
-		  <ul class="navbar-nav">
-		    <li class="nav-item">
-		      <a class="nav-link" href="#">Link 1</a>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="#">Link 2</a>
-		    </li>
-		    <li class="nav-item">
-		      <a class="nav-link" href="#">Link 3</a>
-		    </li>
-		  </ul>
-		</nav>
-		
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-7" style="padding-right: 0">
-	    		<input id="search" type="text" class="form-control" placeholder="Search">
-	    	</div>
-	    	<div class="col-1" style="padding-left: 0">
-	      		<a href="world?searchValue="><button class="btn btn-success btn-block" type="button">Go</button></a>
-	      	</div>	  
-	      	<div class="col-2"></div><br>
-	    </div>
-	    </div>
-	</div>
-	
-  	<div class="col-2"></div> -->
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" href="productList">ShoppingMallName</a>
@@ -146,9 +112,6 @@
     </div>
   </div>
 </nav>
-
-
-
 
 </body>
 </html>

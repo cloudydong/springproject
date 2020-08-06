@@ -12,29 +12,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>product</title>
-<style type="text/css">
-  hr {
-    height: 0px;
-    border: none;
-    border-top: 1px solid black;
-  }
-  div.polaroid {
-  text-align: center;
-  width: 21%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-  }
-  div.contained {
-  text-align: center;
-  padding: 10px 20px;
-  }
-</style>
 </head>
 
 <body>
 <%@ include file = "/WEB-INF/views/header.jsp" %>
 <header>
+
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -43,14 +27,14 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('https://i.kym-cdn.com/entries/icons/facebook/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.jpg')">
+      <div class="carousel-item active" style="background-image: url('https://c4.wallpaperflare.com/wallpaper/384/818/513/himalayas-mountains-landscape-nature-wallpaper-preview.jpg')">
         <div class="carousel-caption d-none d-md-block">
           <h3 class="display-4">First Slide</h3>
           <p class="lead">This is a description for the first slide.</p>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://res.cloudinary.com/teepublic/image/private/s--hMz0d2TZ--/c_crop,x_10,y_10/c_fit,w_1109/c_crop,g_north_west,h_945,w_1260,x_-76,y_-99/co_rgb:ffb81c,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_945,w_1260/fl_layer_apply,g_north_west,x_-76,y_-99/bo_0px_solid_white/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1559034692/production/designs/4942585_0.jpg')">
+      <div class="carousel-item" style="background-image: url('https://free4kwallpapers.com/uploads/originals/2019/05/18/firewatch-wallpaper.jpg')">
         <div class="carousel-caption d-none d-md-block">
           <h3 class="display-4">Second Slide</h3>
           <p class="lead">This is a description for the second slide.</p>
@@ -73,7 +57,7 @@
           <span class="sr-only">Next</span>
         </a>
   </div>
-</header>
+</header> <br>
 <!-- Page Content
 <section class="py-5">
   <div class="container">
@@ -82,7 +66,7 @@
   </div>
 </section> -->
 
-		<div class="container" id="container">
+		<div class="container invisible" id="container">
 		
 			 <div class="row">
 	
@@ -107,13 +91,20 @@
 						</div>
 					</div>
 				</div>
+				
+				<div class="sidebar">
+					<p>hello</p>
+				</div>
+				
 			</div>
+			
 		</div> 
 
 		<div class="text-center">
 			<h3 id="no"></h3>
 			<h3 id="ne"></h3>
 		</div>
+		
 </body>
 
 <script type="text/javascript">
@@ -144,6 +135,8 @@
 
 		let str = "";
 
+		document.getElementById("container").setAttribute("class", "container");
+
 		//let price = xmlDoc.getElementsByTagName("ProductPrice")[0].firstChild.data;
 
 		//let image1 = xmlDoc.getElementsByTagName("ProductImage300")[0].firstChild.data;
@@ -169,11 +162,11 @@
 			//document.getElementById("image").append(img);
 			
 			 str += '<div class="row">'
-				 + '<div class="card" style="width:300px">'
+				 + '<div class="card" style="width:300px; hight:600px;">'
 					 + '<div id=image>'
 				   		 + '<img class="card-img-top" src="'+image+'">'
 				 	 + '</div>'
-				    + '<div class="card-body">'
+				    + '<div class="card-body" style="text-align: center">'
 				      + '<p class="card-title" id="pname">'
 					  + '<a href="productInfo?'
 					  + 'ProductCode='+code+''
@@ -184,27 +177,6 @@
 				    + '</div>'
 				  + '</div>'
 				  + '</div>';
-
-
-				  /* '<div class="row">' 
-
-						+ '<div class="polaroid" id="image">'
-							+ '<img src="'+image+'">' 
-							
-							 + '<div class="contained">'
-								+ '<p id="pname"><a href="world2?'
-								+ 'ProductCode='+code+''
-								+ '">'
-								+ pname + '</a></p>'
-								+ '<h4 id="Saleprice">'
-								+ SalePrice + '원</h4>' 
-							 + '</div>'
-							 
-						+ '</div>'
-						
-				+ '</div>'; */
-
-			 
 		}
 		container.innerHTML = str;
 	}

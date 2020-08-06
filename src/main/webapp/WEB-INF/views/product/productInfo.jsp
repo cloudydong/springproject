@@ -13,11 +13,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>product</title>
 <style type="text/css">
-hr {
-    height: 0px;
-    border: none;
-    border-top: 1px solid black;
-   }
 body {
 	padding-top: 180px;
 }       
@@ -29,25 +24,24 @@ body {
 	<div class="container" id="container">
 		<div class="row">
 
-			<div class="col-sm-4">
-				<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
-			</div>
+			<div id="image" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
 			
-			<div class="col-sm-2"></div>
+			<div class="col-2"></div>
 
-			<div class="col-sm-4">
-				<div class="card">
+			<div class="col-4">
+				<div id="box" class="card invisible">
 					<div class="card-body">
 						<h2 id="pname"></h2>  
 						<div class="row">
 							<div class="col-sm-6"><h2 id="SalePrice"></h2></div>
 							<div class="col-sm-5"><h3 style="color: grey"><del id="price"></del></h3></div>
 						</div>
-						<div id="btnCart" class="btn btn-primary hidden"></div>
-						<div id="btnBuy" class="btn btn-danger hidden"></div> 
+						<div id="btnCart" class="btn btn-primary"></div>
+						<div id="btnBuy" class="btn btn-danger"></div> 
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 
@@ -93,10 +87,12 @@ body {
 		}
 
 		document.getElementById("btnCart").innerHTML = "장바구니에 담기";
-		document.getElementById("btnCart").setAttribute("class", "btn btn-primary");
+		//document.getElementById("btnCart").setAttribute("class", "btn btn-primary");
 		
 		document.getElementById("btnBuy").innerHTML = "바로 구매하기";
-		document.getElementById("btnBuy").setAttribute("class", "btn btn-danger");
+		//document.getElementById("btnBuy").setAttribute("class", "btn btn-danger");
+
+		document.getElementById("box").setAttribute("class", "card");
 
 	}
 
