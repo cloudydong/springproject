@@ -4,11 +4,12 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.constant.SnsUrlGroup;
 import kr.co.domain.UsersDTO;
 import kr.co.persistence.UsersDAO;
-
+@Transactional
 @Service
 public class UsersServiceImpl implements UsersService {
 

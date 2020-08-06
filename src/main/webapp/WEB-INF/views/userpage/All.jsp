@@ -24,9 +24,9 @@
 				<li><a href="#">MY PAGE</a></li>
 				<li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">고객센터<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="${empty login?'login':'/userpage/FAQ'}">FAQ</a></li>
-						<li><a href="${empty login?'login':'/userpage/1to1'}">1:1문의하기</a></li>
-						<li><a href="${empty login?'login':'/userpage/noticelist'}">공지사항</a></li>
+						<li><a href="${empty login?'/users/login':'/userpage/FAQ'}">FAQ</a></li>
+						<li><a href="${empty login?'/users/login':'/userpage/1to1'}">1:1문의하기</a></li>
+						<li><a href="${empty login?'/users/login':'/userpage/noticelist'}">공지사항</a></li>
 						</ul>
 						</li>
 	
@@ -35,7 +35,7 @@
 
 	
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href=${empty login? 'login':'logout'}>${empty login? '로그인':'로그아웃'}<span
+			<li><a href=${empty login? '/users/login':'logout'}>${empty login? '로그인':'로그아웃'}<span
 					class="glyphicon glyphicon-user"></span></a></li>
 			<li><a href="/userpage/insert"><span
 					class="glyphicon glyphicon-log-in"></span> Sign up</a></li>

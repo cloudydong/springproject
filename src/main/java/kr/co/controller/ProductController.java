@@ -17,16 +17,22 @@ import kr.co.service.ProductService;
 @Controller
 @RequestMapping("product")
 public class ProductController {
+	
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "productList", method = RequestMethod.GET)
+	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	public void ProductList(String searchValue, Model model) {
 		model.addAttribute("searchValue", searchValue);
 	}
 	
-	@RequestMapping(value = "productInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
+	public void ProductInfo(String ProductCode, String SalePrice,String ProductPrice, String ProductImage300, Model model) {
+	}
+	
+	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
 	public void ProductInfo(String ProductCode, Model model) {
+
 		model.addAttribute("ProductCode", ProductCode);
 	}
 	

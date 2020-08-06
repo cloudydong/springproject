@@ -56,10 +56,11 @@ public class UsersController {
 	public void join() {
 	}
 	
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(String name, Model model, HttpSession session) {
+	@RequestMapping(value = "/join/{snsName}", method = {RequestMethod.POST,RequestMethod.GET})
+	public String join(String name,String age,String adres,@PathVariable String snsName,@RequestParam String code, Model model, HttpSession session) {
+		String userId = usersService.createUserId(snsName, code);
 		Integer u_no =(Integer) session.getAttribute("user");
-		UsersDTO dto = new UsersDTO(u_no, null, name);
+		UsersDTO dto = new UsersDTO(u_no, userId, name,age,adres);
 		usersService.updateName(dto);
 		session.invalidate();
 		model.addAttribute("result", "다시한번 로그인 해주세요");

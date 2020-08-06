@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
-import kr.co.domain.LoginDTO;
+import kr.co.dto.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 import kr.co.domain.ServiceCenter.Notice.NoticeboardVO;
-import kr.co.domain.ServiceCenter.OneToOne.OneToOneVO;
-import kr.co.domain.UserDTO;
+
+import kr.co.domain.UsersDTO;
 import kr.co.service.Notice.*;
-import kr.co.service.UserService;
+
+import kr.co.service.UsersService;
 
 @Controller
 @RequestMapping("/userpage")
 @SessionAttributes({ "login" })
 public class UserController {
 	@Autowired
-	private UserService userService;
+	private UsersService userService;
 	@Inject
 	private QnABoardService qboardserivce;
 	@Inject
@@ -37,57 +37,21 @@ public class UserController {
 	//메인페이지
 	@RequestMapping(value = "userpagehome", method = RequestMethod.GET)
 	public String home(HttpSession session,Model model) {
-		UserDTO dto =(UserDTO) session.getAttribute("login");
-		model.addAttribute("login",dto);
 		return "/userpage/userpagehome";
 
 	}
 
-	//로그아웃 구현
-	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String logout(SessionStatus status) {
-		status.setComplete();
-
-		return "redirect:/userpage/home";
-	}
-	//로그인 화면 구현
-	@RequestMapping(value = "loginpost", method = { RequestMethod.POST, RequestMethod.GET })
-	public String loginpost(LoginDTO login, Model model, HttpSession session) {
-		UserDTO dto = userService.loginpost(login);
-		if (dto != null) {
-			model.addAttribute("login", dto);
-			session.setAttribute("login", dto);
-			System.out.println(dto);
-			return "/userpage/userpagehome";
-		}
-
-		return "/userpage/login";
-
-	}
-	//로그인
-	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public void login() {
-
-	}
-	//회원 등록구현
-	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insert(UserDTO dto) {
-		return "redirect:/userpage/home";
-	}
-	//회원등록
-	@RequestMapping(value = "insert", method = RequestMethod.GET)
-	public String insert() {
-		return "/userpage/insert";
-	}
+	
+	
 	//FAQ 글 찾기
-	@RequestMapping(value = "FAQsearchlist")
+	@RequestMapping(value = "faqsearchlist")
 	public String searchlist(Model model,String searchType,String keyword) {
 		
 		List<QnABoardVO> list = qboardserivce.searchlist(searchType,keyword);
 		model.addAttribute("list",list);
 		model.addAttribute("searchType",searchType);
 		model.addAttribute("keyword",keyword);
-		return "userpage/FAQsearchlist";
+		return "userpage/faqsearchlist";
 	}
 	//FAQ 글 삭제
 	@RequestMapping(value = "delete/{bno}",method = RequestMethod.GET)
@@ -96,14 +60,14 @@ public class UserController {
 		return "redirect:userpage/list";
 	}
 	//FAQ 글 수정
-	@RequestMapping(value = "FAQupdate",method = RequestMethod.POST)
+	@RequestMapping(value = "faqupdate",method = RequestMethod.POST)
 	public String update(QnABoardVO vo) {
 		
 		qboardserivce.update(vo);
-		return "redirect:/userpage/FAQread/"+vo.getBno();
+		return "redirect:/userpage/faqread/"+vo.getBno();
 	}
 	//FAQ 글 수정
-	@RequestMapping(value = "FAQupdate/{bno}",method = RequestMethod.GET)
+	@RequestMapping(value = "faqupdate/{bno}",method = RequestMethod.GET)
 	public String update(Model model,@PathVariable("bno") int bno) {
 		
 		QnABoardVO vo = qboardserivce.updateUI(bno);
@@ -113,11 +77,11 @@ public class UserController {
 		
 	}
 	//FAQ글 자세히보기 구현
-	@RequestMapping(value = "FAQread/{bno}",method =RequestMethod.GET)
+	@RequestMapping(value = "faqread/{bno}",method =RequestMethod.GET)
 	public String read(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		QnABoardVO vo = qboardserivce.read(bno);
-		UserDTO dto =(UserDTO) session.getAttribute("login");
+		UsersDTO dto =(UsersDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
 		System.out.println(login);
 		model.addAttribute("vo",vo);
@@ -126,7 +90,7 @@ public class UserController {
 	}
 
 	//FAQ 리스트 구현
-	@RequestMapping(value ="FAQ",method = RequestMethod.GET)
+	@RequestMapping(value ="faq",method = RequestMethod.GET)
 	public void list(Model model,String curPage) {
 		int page = -1;
 		if(curPage==null) {
@@ -144,14 +108,14 @@ public class UserController {
 
 
 	//FAQ 글작성구현
-	@RequestMapping(value ="FAQinsert",method = RequestMethod.POST)
+	@RequestMapping(value ="faqinsert",method = RequestMethod.POST)
 	public String insert(QnABoardVO vo) {
 		qboardserivce.insert(vo);
 		return "redirect:/userpage/FAQ";
 	}
 
 
-	@RequestMapping(value="FAQinsert",method = RequestMethod.GET)
+	@RequestMapping(value="faqinsert",method = RequestMethod.GET)
 	public void qnaboardinsert() {
 		
 		
@@ -161,7 +125,7 @@ public class UserController {
 	public String Noticeread(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		NoticeboardVO vo = nboardservice.read(bno);
-		UserDTO dto =(UserDTO) session.getAttribute("login");
+		UsersDTO dto =(UsersDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
 		System.out.println(login);
 		model.addAttribute("vo",vo);

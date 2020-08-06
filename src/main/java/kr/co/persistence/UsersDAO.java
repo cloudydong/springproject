@@ -11,5 +11,6 @@ public interface UsersDAO {
 	void updateName(UsersDTO dto);
 
 	Integer getU_noById(String userId);
+
 	
 }
