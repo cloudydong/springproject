@@ -1,5 +1,5 @@
 create table cart(
-c_no varchar(120) primary key,
+c_no number(120) primary key,
 pName varchar(120),
 pPrice varchar(120),
 pImage varchar(120),

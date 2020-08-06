@@ -23,6 +23,8 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public void insert(CartDTO dto) {
+		Integer c_no = session.selectOne(NS+".getC_no");
+		dto.setC_no(c_no);
 		session.insert(NS + ".insert", dto);
 	}
 
