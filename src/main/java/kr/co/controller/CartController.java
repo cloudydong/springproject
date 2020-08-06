@@ -1,8 +1,6 @@
 package kr.co.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,8 +37,12 @@ public class CartController {
 				.toString();
 		try {	
 			Document doc = Jsoup.connect(url).get();
-			System.out.println(doc);
 			Element body = doc.getElementById("body");
+			Elements elements = doc.select("ProductName");
+			 for (Element e : elements) {
+		            System.out.println(e.text());
+		        }
+			System.out.println(doc);
 			System.out.println(body);
 			int a = 0;
 			System.out.println(a);
