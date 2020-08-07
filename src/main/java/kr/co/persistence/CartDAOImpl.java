@@ -17,8 +17,8 @@ public class CartDAOImpl implements CartDAO {
 	private static final String NS = "c.r.t";
 
 	@Override
-	public List<CartDTO> selectList() {
-		return session.selectList(NS + ".list");
+	public List<CartDTO> selectList(Integer u_no) {
+		return session.selectList(NS + ".list", u_no);
 	}
 
 	@Override
@@ -37,8 +37,15 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public void update(CartDTO dto) {
-		session.update(NS+".update", dto);
+	public void update(Integer c_no, String count, Integer u_no) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("c_no", c_no);
+		map.put("count", count);
+		map.put("u_no", u_no.toString());
+		System.out.println("c_no:" +c_no);
+		System.out.println("count:" +count);
+		System.out.println("u_no:" +u_no);
+		session.update(NS+".update", map);
 	}
 
 }

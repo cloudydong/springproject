@@ -49,7 +49,7 @@ public class UsersController {
 			model.addAttribute("result", dto.getName() + "님 반갑습니다.");
 			session.setAttribute("loginUser", dto);
 		}
-		return "/product/productList";
+		return "redirect:/users/login";
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)

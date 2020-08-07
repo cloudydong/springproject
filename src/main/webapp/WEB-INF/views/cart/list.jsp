@@ -9,7 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>장바구니</title>
 </head>
@@ -20,7 +22,7 @@
         <div class="col-lg-12 col-md-12 col-12">
             <h3 class="display-5 mb-2 text-center">장바구니</h3>
             <p class="mb-5 text-center">
-                <i class="text-info font-weight-bold">${fn:length(list)} </i> 개가 장바구니에 담겼습니다</p>
+                <i class="text-info font-weight-bold">${fn:length(cartList)} </i> 개가 장바구니에 담겼습니다</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>
@@ -31,87 +33,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list}" var="dto">
+                <c:forEach items="${cartList}" var="dto">
                     <tr>
                         <td data-th="Product">
                             <div class="row">
                                 <div class="col-md-3 text-left">
-                                    <img src="${dto.pImage}" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                    <img src="${dto.PImage}" alt="상품이미지" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                 </div>
                                 <div class="col-md-9 text-left mt-sm-2">
-                                    <h4><a href="${dto.detailPageUrl}">${dto.pName}</a></h4>
-                                    <p class="font-weight-light">${dto.sellerNick} &amp; ${dto.seller}</p>
+                                    <h4><a href="${dto.getDetailPageUrl()}">${dto.PName}</a></h4>
+                                    <p class="font-weight-light">${dto.getSellerNick()} &amp; ${dto.getSeller()}</p>
                                 </div>
                             </div>
                         </td>
-                        <td data-th="Price">${dto.pPrice}원</td>
+                        <td data-th="Price">${dto.PPrice}원</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="${dto.count}">
+                            <select data-quantity="${dto.getCount()}" data-no="${dto.getC_no()}" class="quantity-select form-control form-control-lg text-center">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
                                 <button class="btn btn-white border-secondary bg-white btn-md mb-2">
                                     <i class="fas fa-sync">💱</i>
                                 </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2 delete-cart">🗑</button>
+                                <button data-cno="${dto.getC_no()}" class="delete_cart btn btn-white border-secondary bg-white btn-md mb-2">🗑</button>
                             </div>
                         </td>
                     </tr>
                  </c:forEach>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>Product Name</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">$49.00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>Product Name</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">$49.00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="float-right text-right">
@@ -133,28 +87,58 @@
 </section>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".delete-cart").on("click", function(){
-			const c_no = $(this).prev().prev().text();
+		$(".quantity-select").change(function(){
+			const count = $(this).children("option:selected").val();
+			const c_no = $(this).attr("data-no");
+			console.log(c_no);
+			console.log(count);
 			$.ajax({
-				type : 'POST',
-				url : '/cart/delete/'+c_no,
+				type : 'PUT',
+				url : '/cart/update',
 				headers : {
 					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "POST"
+					"X-HTTP-Method-Override" : "PUT"
 				},
 				dataType : "text",
 				data : JSON.stringify({
-						rno : rno
+					c_no : c_no,
+					count : count
 				}),
 				success : function(result){
-						getList(bno);
+					if(result=="fail") 
+						$(location).prop('href',"/cart/list");
+					console.log("success");
 				},
 				error : function(requset, status, error){
-						console.log(error);
+					console.log(error);
 				}
-		})
-		}
-	}
+			});
+		});
+		$(".delete_cart").on("click", function(){
+			const c_no = $(this).attr("data-cno");
+			$.ajax({
+				type : 'DELETE',
+				url : '/cart/delete/'+c_no,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "DELETE"
+				},
+				dataType : "text",
+				data : JSON.stringify({
+					c_no : c_no
+				}),
+				success : function(result){
+					if(result=="fail") 
+						$(location).prop('href',"/users/login");
+					else
+						$(this).prev().prev().remove();
+				},
+				error : function(requset, status, error){
+					console.log(error);
+				}
+			});
+		});
+	});
 </script>
 </body>
 </html>
