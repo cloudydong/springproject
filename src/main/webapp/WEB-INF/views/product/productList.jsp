@@ -56,7 +56,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-  </div>
+  </div><br>
 <!-- Page Content
 <section class="py-5">
   <div class="container">
@@ -93,7 +93,6 @@
 				
 		</div>
 	</div>
-				
 
 		<div class="text-center">
 			<h3 id="no"></h3>

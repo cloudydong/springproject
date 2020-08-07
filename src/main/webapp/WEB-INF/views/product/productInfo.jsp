@@ -38,7 +38,13 @@ body {
 							<div class="col-sm-5"><h4 style="color: grey;padding-top: 5px"><del id="price"></del></h4></div>
 						</div>
 						<div onclick="cart();" role="button" id="btnCart" class="btn btn-primary"></div>
-						<div id="btnBuy" class="btn btn-danger"></div> 
+						<div id="btnBuy" class="btn btn-danger"></div><br><br> 
+						<select class="form-control" id="pcount">
+					        <option>1</option>
+					        <option>2</option>
+					        <option>3</option>
+					        <option>4</option>
+				      	</select>
 					</div>
 				</div>
 			</div>
