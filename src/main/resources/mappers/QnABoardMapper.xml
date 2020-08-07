@@ -59,11 +59,7 @@
 	<![CDATA[select *from qnaboard where lower(${searchType}) like '%'||lower(#{keyword})||'%']]>
 	
 	</select>
-	<select id="loginpost" resultType="UserDTO">
-  	select *from user_ where id = #{id} and name = #{pw}
-  	</select>
-  	
-	
+
 
 
 

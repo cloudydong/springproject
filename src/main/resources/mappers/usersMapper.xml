@@ -9,11 +9,11 @@
 	</select>
 
 	<insert id="create">
-		insert into users(u_no, id) values (#{u_no}, #{id})
+		insert into users(u_no,id) values (#{u_no},#{id})
 	</insert>
 
 	<update id="updateName">
-		update users set name = #{name} where u_no = #{u_no}
+		update users set name = #{name},age=#{age},adres =#{adres} where u_no = #{u_no}
 	</update>
 	
 	<select id="getU_noById" resultType="Integer">

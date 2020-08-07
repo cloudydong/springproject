@@ -2,9 +2,8 @@ package kr.co.persistence.Notice;
 
 import java.util.List;
 
-import kr.co.domain.LoginDTO;
+
 import kr.co.domain.ServiceCenter.*;
-import kr.co.domain.UserDTO;
 
 public interface QnABoardDAO {
 
@@ -26,7 +25,7 @@ public interface QnABoardDAO {
 
 	void deleteByBno(int bno);
 
-	UserDTO loginpost(LoginDTO login);
+
 	
 
 }
