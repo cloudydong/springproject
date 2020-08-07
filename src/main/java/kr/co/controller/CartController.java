@@ -39,7 +39,7 @@ public class CartController {
 			String pImage = doc.select("ProductImage150").text();
 			String sellerNick = doc.select("SellerNick").text();
 			String seller = doc.select("Seller").text();
-			String detailPageUrl = doc.select("DetailPageUrl").text();
+			String detailPageUrl = "/product/productInfo/ProductCode="+productCode;
 			String salePrice = doc.select("SalePrice").text();
 			String delivery = doc.select("Delivery").text();
 			String buySatisfy = doc.select("BuySatisfy").text();

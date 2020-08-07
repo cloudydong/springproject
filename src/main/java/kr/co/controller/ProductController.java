@@ -54,7 +54,7 @@ public class ProductController {
 	public String insert(HashMap<String, Object> map) {
 		//get List<Img> get Product
 		Integer p_no = productService.insert(map);
-		return "/product/productList";
+		return "/product/select/"+p_no;
 	}
 	
 	@RequestMapping(value = "insert", method = RequestMethod.GET)
