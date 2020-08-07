@@ -34,10 +34,10 @@ body {
 					<div class="card-body">
 						<h2 id="pname"></h2>  
 						<div class="row">
-							<div class="col-sm-6"><h2 id="SalePrice"></h2></div>
+							<div class="col-sm-6"><h3 id="SalePrice"></h3></div>
 							<div class="col-sm-5"><h4 style="color: grey;padding-top: 5px"><del id="price"></del></h4></div>
 						</div>
-						<div id="btnCart" class="btn btn-primary"></div>
+						<div onclick="cart();" role="button" id="btnCart" class="btn btn-primary"></div>
 						<div id="btnBuy" class="btn btn-danger"></div> 
 					</div>
 				</div>
@@ -112,6 +112,11 @@ body {
 		  }
 		}); 
 	});
+
+	function cart(){
+		document.location.href = "/cart/add/"+${ProductCode};
+	}
+	
 
 </script>
 </html>

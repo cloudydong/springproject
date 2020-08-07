@@ -44,12 +44,17 @@
 				
 			
 
-		<div class="row">
+	<div class="row">
+	
+			<c:if test="${sessionScope.login.id == vo.writer}">
 			<div class="form-group">
 				<button class="btn btn-warning" id="update">수정</button>
 				<button class="btn btn-primary" id="delete">삭제</button>
-				<button class="btn btn-danger" id="list">목록</button>
 			</div>
+			</c:if>
+			
+			
+				<button class="btn btn-danger" id="list">목록</button>
 
 		</div>
 		<!-- class = row -->

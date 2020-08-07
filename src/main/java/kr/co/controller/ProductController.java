@@ -27,7 +27,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
+<<<<<<< HEAD
 	public void ProductInfo(String ProductCode, String SalePrice,String ProductPrice, String ProductImage300, Model model) {
+=======
+	public void ProductInfo(String ProductCode, Model model) {
+
+>>>>>>> 049e2d9983d492946444bdf101f2763c93081afe
 		model.addAttribute("ProductCode", ProductCode);
 	}
 	
@@ -56,7 +61,7 @@ public class ProductController {
 	public String insert(HashMap<String, Object> map) {
 		//get List<Img> get Product
 		Integer p_no = productService.insert(map);
-		return "/product/productList";
+		return "/product/select/"+p_no;
 	}
 	
 	@RequestMapping(value = "insert", method = RequestMethod.GET)

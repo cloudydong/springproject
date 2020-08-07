@@ -44,4 +44,12 @@ public class CartDTO {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return "CartDTO [c_no=" + c_no + ", pName=" + pName + ", pPrice=" + pPrice + ", pImage=" + pImage
+				+ ", sellerNick=" + sellerNick + ", seller=" + seller + ", detailPageUrl=" + detailPageUrl
+				+ ", salePrice=" + salePrice + ", delivery=" + delivery + ", buySatisfy=" + buySatisfy + ", discount="
+				+ discount + ", mileage=" + mileage + ", u_no=" + u_no + ", count=" + count + "]";
+	}
+
 }

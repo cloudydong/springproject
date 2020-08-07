@@ -2,10 +2,9 @@ package kr.co.service.Notice;
 
 import java.util.List;
 
-import kr.co.domain.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 
-import kr.co.domain.UserDTO;
+
 
 
 public interface QnABoardService {
@@ -24,7 +23,6 @@ public interface QnABoardService {
 
 	List<QnABoardVO> searchlist(String searchType, String keyword);
 
-	UserDTO loginpost(LoginDTO login);
 
 	
 	

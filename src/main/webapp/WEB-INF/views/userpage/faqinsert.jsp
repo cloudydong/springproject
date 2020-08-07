@@ -31,7 +31,7 @@
 
 
 
-			<form action="FAQinsert" method="post">
+			<form action="faqinsert" method="post">
 
 				<div class="form-group">
 

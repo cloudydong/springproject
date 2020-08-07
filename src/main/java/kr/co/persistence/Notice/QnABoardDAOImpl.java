@@ -10,10 +10,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.domain.LoginDTO;
+
 import kr.co.domain.ServiceCenter.*;
 
-import kr.co.domain.UserDTO;
 
 @Repository
 public class QnABoardDAOImpl implements QnABoardDAO {
@@ -92,9 +91,5 @@ public class QnABoardDAOImpl implements QnABoardDAO {
 		session.delete(NS+".deleteByBno", bno);
 		
 	}
-	@Override
-	public UserDTO loginpost(LoginDTO login) {
-		// TODO Auto-generated method stub
-		return session.selectOne(NS+".loginpost", login);
-	}
+	
 }

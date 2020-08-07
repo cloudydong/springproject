@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-import kr.co.domain.LoginDTO;
+import kr.co.dto.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 import kr.co.domain.ServiceCenter.Notice.NoticeboardVO;
 import kr.co.domain.ServiceCenter.OneToOne.OneToOneVO;
-import kr.co.domain.UserDTO;
+import kr.co.domain.UsersDTO;
 import kr.co.service.Notice.*;
-import kr.co.service.UserService;
+import kr.co.service.UsersService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
-	private UserService userService;
+	private UsersService userService;
 	@Inject
 	private QnABoardService qboardserivce;
 	@Inject
@@ -77,7 +77,7 @@ public class AdminController {
 	public String read(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		QnABoardVO vo = qboardserivce.read(bno);
-		UserDTO dto =(UserDTO) session.getAttribute("login");
+		UsersDTO dto =(UsersDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
 		System.out.println(login);
 		model.addAttribute("vo",vo);
@@ -124,7 +124,7 @@ public class AdminController {
 	public String Noticeread(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		NoticeboardVO vo = nboardservice.read(bno);
-		UserDTO dto =(UserDTO) session.getAttribute("login");
+		UsersDTO dto =(UsersDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
 		System.out.println(login);
 		model.addAttribute("vo",vo);
