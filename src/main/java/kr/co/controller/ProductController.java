@@ -27,15 +27,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/productInfo", method = RequestMethod.GET)
-<<<<<<< HEAD
-	public void ProductInfo(String ProductCode, String SalePrice,String ProductPrice, String ProductImage300, Model model) {
-=======
-	public void ProductInfo(String ProductCode, Model model) {
 
->>>>>>> 049e2d9983d492946444bdf101f2763c93081afe
-		model.addAttribute("ProductCode", ProductCode);
+	public void ProductInfo(String ProductCode, String SalePrice,String ProductPrice, String ProductImage300, Model model) {
+		
+			model.addAttribute("ProductCode", ProductCode);
 	}
-	
+
 	/*
 	 * @RequestMapping(value = "/productInfo", method = RequestMethod.GET) public
 	 * void ProductInfo(String ProductCode, Model model) {
