@@ -22,7 +22,7 @@ public class UsersDAOImpl implements UsersDAO {
 	@Override
 	public void createUser(String userId) {
 		Integer u_no = session.selectOne(NS + ".getUno");
-		UsersDTO dto = new UsersDTO(u_no, userId, null, null, null);
+		UsersDTO dto = new UsersDTO(u_no, userId, null);
 		session.insert(NS + ".create", dto);
 	}
 

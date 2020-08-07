@@ -11,10 +11,7 @@
 	<p>사용하실 이름을 입력하세요</p>
 	<form action="/users/join" method="post">
 		이름:<input name="name"><br>
-		나이:<input name = "id"><br>
-		주소:<input name = "adres"><br>
 		<input type="submit" value="입력">
-		
 	</form>
 </body>
 </html>
