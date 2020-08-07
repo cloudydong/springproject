@@ -13,10 +13,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>product</title>
 </head>
-
 <body>
 <%@ include file = "/WEB-INF/views/header.jsp" %>
-<header>
+
+
 
 
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -56,8 +56,7 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-  </div>
-</header> <br>
+  </div><br>
 <!-- Page Content
 <section class="py-5">
   <div class="container">
@@ -94,7 +93,6 @@
 				
 		</div>
 	</div>
-				
 
 		<div class="text-center">
 			<h3 id="no"></h3>
