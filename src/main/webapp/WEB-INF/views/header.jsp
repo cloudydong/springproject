@@ -100,9 +100,6 @@
 			  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 		 </svg></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li>
       </ul>
     </div>
   </div>
