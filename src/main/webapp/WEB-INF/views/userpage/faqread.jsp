@@ -8,13 +8,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	
 
 <title>Insert title here</title>
@@ -46,7 +43,7 @@
 
 	<div class="row">
 	
-			<c:if test="${sessionScope.login.id == vo.writer}">
+			<c:if test="${sessionScope.loginUser.name == vo.writer}">
 			<div class="form-group">
 				<button class="btn btn-warning" id="update">수정</button>
 				<button class="btn btn-primary" id="delete">삭제</button>
@@ -61,6 +58,7 @@
 
 
 		<div class="row">
+		
 			<div id="myCollapse" class="collapse">
 
 				<div class="form-group">
@@ -78,26 +76,6 @@
 
 
 			</div>
-
-
-
-
-
-			<div id="replies" class="row">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<span>rno: 3</span>,<span>작성자: 홍길동</span> <span class="pull-ligth">2020년
-							07월07일</span>
-					</div>
-					<div class="panel-body">
-						<p>댓글 내용입니다</p>
-						<button data-name="" data-rno="3"
-							class="btn btn-warning replymodify">수정</button>
-						<button data-rno="3" class="btn btn-warning replydelete">삭제</button>
-					</div>
-
-				</div>
-
 
 			</div>
 		</div>
@@ -137,6 +115,7 @@
 
 	
 
+	</div>
 	</div>
 	
 	
@@ -218,11 +197,6 @@
 
 			$("#replyInsertBtn").click(function() {
 				
-				var login = $("#login.id");
-				if(login==null){
-					alert("잘못된접근");
-
-				}else{
 
 				var replyer = $("#replyer").val();
 				var replytext = $("#replytext").val();
@@ -276,25 +250,25 @@
 					
 
 
-					}
+					});
 
-			});
+			
 
 			$("#reply_form").click(function() {
 				$("#myCollapse").collapse("toggle");
 
 			});
 			$("#update").click(function() {
-				location.assign("/userpage/FAQupdate/${vo.bno}");
+				location.assign("/userpage/faqupdate/${vo.bno}");
 
 			});
 			$("#delete").click(function() {
-				location.assign("/userpage/FAQdelete/${vo.bno}")
+				location.assign("/userpage/faqdelete/${vo.bno}")
 
 			});
 
 			$("#list").click(function() {
-				location.assign("/userpage/FAQ")
+				location.assign("/userpage/faq")
 
 			});
 		});

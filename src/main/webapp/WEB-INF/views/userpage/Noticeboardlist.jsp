@@ -3,40 +3,38 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ include file = "All.jsp" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-</head>
-<body>
 <style type="text/css">
-.th-center {
-	text-align: center
+.row{
+margin:150px
+
 }
+
+
+
 </style>
-
-
-
-
 </head>
+
 <body>
+
+<%@ include file = "/WEB-INF/views/header.jsp" %>
+
+
 	<div class="container">
 		<div class="row text-center">
 			<h1>공지사항</h1>
-		</div>
-
+			</div>
 		<div class="row">
-		</div>
-
-		<div class="row">
-
 			<table class="table">
 				<thead>
 					<tr>

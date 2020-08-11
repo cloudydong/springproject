@@ -32,8 +32,7 @@ public class UserController {
 	private QnABoardService qboardserivce;
 	@Inject
 	private NoticeBoardSerivce nboardservice;
-	@Inject
-	private OneToOneSerivce oboardservice;
+
 	//메인페이지
 	@RequestMapping(value = "userpagehome", method = RequestMethod.GET)
 	public String home(HttpSession session,Model model) {
@@ -73,7 +72,7 @@ public class UserController {
 		QnABoardVO vo = qboardserivce.updateUI(bno);
 		model.addAttribute("vo",vo);
 		
-		return "userpage/FAQupdate";
+		return "userpage/faqupdate";
 		
 	}
 	//FAQ글 자세히보기 구현
@@ -81,12 +80,9 @@ public class UserController {
 	public String read(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		QnABoardVO vo = qboardserivce.read(bno);
-		UsersDTO dto =(UsersDTO) session.getAttribute("login");
-		model.addAttribute("login",dto);
 		System.out.println(login);
 		model.addAttribute("vo",vo);
-		System.out.println(dto);
-		return "userpage/FAQread";
+		return "userpage/faqread";
 	}
 
 	//FAQ 리스트 구현
@@ -111,7 +107,7 @@ public class UserController {
 	@RequestMapping(value ="faqinsert",method = RequestMethod.POST)
 	public String insert(QnABoardVO vo) {
 		qboardserivce.insert(vo);
-		return "redirect:/userpage/FAQ";
+		return "redirect:/userpage/faq";
 	}
 
 

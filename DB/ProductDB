@@ -1,7 +1,7 @@
 create table Product(
 p_no number primary key,
 pName varchar(120) not null,
-text varchar(6000),
+text varchar(1000),
 pImage varchar(120) not null,
 sellerNick varchar(120) not null,
 seller varchar(120) not null,
@@ -15,6 +15,6 @@ Invntry varchar(120)
 
 create table Product_img(
 i_no number primary key,
-p_no number(120),
+p_no number,
 imgAdr varchar(120)
 );

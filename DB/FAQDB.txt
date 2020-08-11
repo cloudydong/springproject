@@ -1,0 +1,21 @@
+ create table qnaboard(
+ bno number primary key,
+ title varchar2(100) not null,
+ content varchar2(3000) not null,
+ writer varchar2(21) not null,
+ viewcnt number default 0,
+ regDate date default sysdate,
+ updateDate date default sysdate
+ );
+ 
+ create table noticeboard(
+ bno number primary key,
+ title varchar2(100),
+ content varchar2(3000),
+ writer varchar2(21) not null,
+ viewcnt number default 0,
+ regDate date default sysdate,
+ updateDate date default sysdate
+ );
+ 
+ 

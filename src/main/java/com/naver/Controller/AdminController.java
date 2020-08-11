@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.co.dto.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 import kr.co.domain.ServiceCenter.Notice.NoticeboardVO;
-import kr.co.domain.ServiceCenter.OneToOne.OneToOneVO;
 import kr.co.domain.UsersDTO;
 import kr.co.service.Notice.*;
 import kr.co.service.UsersService;
@@ -30,8 +29,7 @@ public class AdminController {
 	private QnABoardService qboardserivce;
 	@Inject
 	private NoticeBoardSerivce nboardservice;
-	@Inject
-	private OneToOneSerivce oboardservice;
+	
 	//메인페이지
 	@RequestMapping(value = "/adminhome", method = RequestMethod.GET)
 	public String home() {
