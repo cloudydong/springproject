@@ -16,8 +16,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .row{
-margin:150px
-
+margin:150px;
 }
 
 
@@ -63,6 +62,7 @@ margin:150px
 
 			</table>
 		</div>
+			<a href="/admin/adminlogin">관리자페이지가기</a>
 	
 	
 	</div>

@@ -2,6 +2,7 @@ package kr.co.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(HttpSession session, Model model) {
+	public String list(HttpSession session, Model model,String result) {
 		UsersDTO user = (UsersDTO) session.getAttribute("loginUser");
 		if(user==null)
 			return "redirect:/users/login";

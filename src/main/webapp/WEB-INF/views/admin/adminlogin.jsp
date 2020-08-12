@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -14,6 +14,42 @@
 <title>Insert title here</title>
 </head>
 <body>
-구매완료!
+<style type = "text/css">
+body{
+background-image:url(image/sky.png);
+
+}
+.container{
+
+	position: absolute;
+	text-align: center;
+	width: 300px;
+	height:200px;
+	top:50%;
+	left:45%;
+	margin:-200px 0 0 -50px;
+	
+	
+
+}
+
+
+</style>
+<body>
+<div class = "container">
+<form action = "/admin/loginpost" method = "post">
+<div class="form-group">
+	<label for= "id">ID:</label>
+	<input name ="id" class = "form-control"><br>
+</div>
+
+<div class="form-group">
+	<label for = "pw">pw</label>
+	<input class ="form-control" name = "pw"><br>
+</div>
+
+	<button type="submit" class ="btn btn-default">login</button>
+</form>
+</div>
 </body>
 </html>

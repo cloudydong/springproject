@@ -50,7 +50,7 @@ public class UsersController {
          model.addAttribute("result", dto.getName() + "님 반갑습니다.");
          session.setAttribute("loginUser", dto);
       }
-      return "/product/productList";
+      return "redirect:/product/productList";
    }
 
    @RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -79,7 +79,7 @@ public class UsersController {
       String kakaologoutURL = "https://developers.kakao.com/logout";
       String naverlogoutURL = "https://nid.naver.com/nidlogin.logout?returl=https://www.naver.com";
       //home 으로 가야함
-      return "/login";
+      return "redirect:/users/login";
    }
 
 }

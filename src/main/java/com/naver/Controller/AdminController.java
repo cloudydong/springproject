@@ -11,11 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.dto.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 import kr.co.domain.ServiceCenter.Notice.NoticeboardVO;
+import kr.co.domain.AdminDTO;
 import kr.co.domain.UsersDTO;
 import kr.co.service.Notice.*;
 import kr.co.service.UsersService;
@@ -29,6 +30,33 @@ public class AdminController {
 	private QnABoardService qboardserivce;
 	@Inject
 	private NoticeBoardSerivce nboardservice;
+	
+	
+	//로그아웃 구현
+		@RequestMapping(value = "logout", method = RequestMethod.GET)
+		public String logout(SessionStatus status) {
+			status.setComplete();
+
+			return "redirect:/product/productList";
+		}
+		//로그인 화면 구현
+		@RequestMapping(value = "loginpost", method = { RequestMethod.POST, RequestMethod.GET })
+		public String loginpost(LoginDTO login, Model model, HttpSession session) {
+			AdminDTO dto = userService.loginpost(login);
+			if (dto != null) {
+				model.addAttribute("login", dto);
+				session.setAttribute("login", dto);
+				return "/admin/Noticeboard";
+			}
+
+			return "/admin/adminlogin";
+
+		}
+		//로그인
+		@RequestMapping(value = "login", method = RequestMethod.GET)
+		public void login() {
+
+		}
 	
 	//메인페이지
 	@RequestMapping(value = "/adminhome", method = RequestMethod.GET)
@@ -45,7 +73,7 @@ public class AdminController {
 		model.addAttribute("list",list);
 		model.addAttribute("searchType",searchType);
 		model.addAttribute("keyword",keyword);
-		return "admin/FAQsearchlist";
+		return "admin/faqsearchlist";
 	}
 	//FAQ 글 삭제
 	@RequestMapping(value = "delete/{bno}",method = RequestMethod.GET)
@@ -54,24 +82,24 @@ public class AdminController {
 		return "redirect:admin/list";
 	}
 	//FAQ 글 수정
-	@RequestMapping(value = "FAQupdate",method = RequestMethod.POST)
+	@RequestMapping(value = "faqupdate",method = RequestMethod.POST)
 	public String update(QnABoardVO vo) {
 		
 		qboardserivce.update(vo);
-		return "redirect:/admin/FAQread/"+vo.getBno();
+		return "redirect:/admin/faqread/"+vo.getBno();
 	}
 	//FAQ 글 수정
-	@RequestMapping(value = "FAQupdate/{bno}",method = RequestMethod.GET)
+	@RequestMapping(value = "faqupdate/{bno}",method = RequestMethod.GET)
 	public String update(Model model,@PathVariable("bno") int bno) {
 		
 		QnABoardVO vo = qboardserivce.updateUI(bno);
 		model.addAttribute("vo",vo);
 		
-		return "admin/FAQupdate";
+		return "admin/faqupdate";
 		
 	}
 	//FAQ글 자세히보기 구현
-	@RequestMapping(value = "FAQread/{bno}",method =RequestMethod.GET)
+	@RequestMapping(value = "faqread/{bno}",method =RequestMethod.GET)
 	public String read(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		QnABoardVO vo = qboardserivce.read(bno);
@@ -80,12 +108,12 @@ public class AdminController {
 		System.out.println(login);
 		model.addAttribute("vo",vo);
 		System.out.println(dto);
-		return "admin/FAQread";
+		return "admin/faqread";
 	}
 	
 
 	//FAQ 리스트 구현
-	@RequestMapping(value ="FAQ",method = RequestMethod.GET)
+	@RequestMapping(value ="faq",method = RequestMethod.GET)
 	public void list(Model model,String curPage) {
 		int page = -1;
 		if(curPage==null) {
@@ -105,14 +133,14 @@ public class AdminController {
 
 
 	//FAQ 글작성구현
-	@RequestMapping(value ="FAQinsert",method = RequestMethod.POST)
+	@RequestMapping(value ="faqinsert",method = RequestMethod.POST)
 	public String insert(QnABoardVO vo) {
 		qboardserivce.insert(vo);
-		return "redirect:/admin/FAQ";
+		return "redirect:/admin/faq";
 	}
 
 
-	@RequestMapping(value="FAQinsert",method = RequestMethod.GET)
+	@RequestMapping(value="faqinsert",method = RequestMethod.GET)
 	public void qnaboardinsert() {
 		
 		

@@ -1,14 +1,18 @@
 package com.naver.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping("pay")
 public class PayController {
 
 	@RequestMapping(value = "kakaopay", method = RequestMethod.GET)
-	public void kakaopay() {
+	public void kakaopay(String result,Model model) {
+		model.addAttribute("result",result);
+		
 		
 		
 	}

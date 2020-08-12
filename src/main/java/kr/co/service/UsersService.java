@@ -1,6 +1,8 @@
 package kr.co.service;
 
+import kr.co.domain.AdminDTO;
 import kr.co.domain.UsersDTO;
+import kr.co.dto.LoginDTO;
 
 public interface UsersService {
 
@@ -13,5 +15,8 @@ public interface UsersService {
 	void updateName(UsersDTO dto);
 
 	Integer getU_noById(String userId);
+
+	AdminDTO loginpost(LoginDTO login);
+
 	
 }

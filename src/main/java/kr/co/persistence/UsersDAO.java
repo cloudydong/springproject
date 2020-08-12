@@ -1,6 +1,8 @@
 package kr.co.persistence;
 
+import kr.co.domain.AdminDTO;
 import kr.co.domain.UsersDTO;
+import kr.co.dto.LoginDTO;
 
 public interface UsersDAO {
 
@@ -11,6 +13,8 @@ public interface UsersDAO {
 	void updateName(UsersDTO dto);
 
 	Integer getU_noById(String userId);
+
+	AdminDTO loginpost(LoginDTO login);
 
 	
 }

@@ -4,7 +4,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.domain.AdminDTO;
 import kr.co.domain.UsersDTO;
+import kr.co.dto.LoginDTO;
 
 @Repository
 public class UsersDAOImpl implements UsersDAO {
@@ -34,6 +36,12 @@ public class UsersDAOImpl implements UsersDAO {
 	@Override
 	public Integer getU_noById(String userId) {
 		return session.selectOne(NS + ".getU_noById", userId);
+	}
+
+	@Override
+	public AdminDTO loginpost(LoginDTO login) {
+		// TODO Auto-generated method stub
+		return session.selectOne(NS + ".loginpost",login);
 	}
 
 

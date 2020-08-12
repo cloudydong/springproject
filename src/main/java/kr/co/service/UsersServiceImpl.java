@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.constant.SnsUrlGroup;
+import kr.co.domain.AdminDTO;
 import kr.co.domain.UsersDTO;
+import kr.co.dto.LoginDTO;
 import kr.co.persistence.UsersDAO;
 @Transactional
 @Service
@@ -47,4 +49,12 @@ public class UsersServiceImpl implements UsersService {
 	public Integer getU_noById(String userId) {
 		return dao.getU_noById(userId);
 	}
+
+	@Override
+	public AdminDTO loginpost(LoginDTO login) {
+		// TODO Auto-generated method stub
+		return dao.loginpost(login);
+	}
+
+	
 }

@@ -50,7 +50,7 @@ body {
 
 <script type="text/javascript">
 
-	function loadDoc(value = ${ProductCode}) {
+	function loadDoc(value =${ProductCode}) {
 		let req = new XMLHttpRequest();
 		req.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
