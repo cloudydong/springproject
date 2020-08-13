@@ -57,60 +57,23 @@
 		<!-- class = row -->
 
 
-		<div class="row">
-		
-			<div id="myCollapse" class="collapse">
-
-				<div class="form-group">
-					<label for="replyer">작성자</label> <input class="form-control"
-						id="replyer">
-				</div>
-				<div class="form-group">
-					<label for="replytext">내용</label> <input class="form-control"
-						id="replytext">
-				</div>
-				<div class="form-group">
-					<button id="replyInsertBtn" class="btn btn-primary">댓글 등록</button>
-				</div>
-
-
-
-			</div>
-
-			</div>
-		</div>
 		<!-- class = row -->
 
 
-		<div class="row">
-			<div data-backdrop="static" id="myModal" class="modal fade"
-				tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							<h4 class="modal-rno">rno 데이터</h4>
-						</div>
-						<div class="modal-body">
-							<p class="modal-replyer">홍길동</p>
-							<input value="댓글내용입니다." class="modal-replytext" />
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-warning modal-update-btn"
-								data-dismiss="modal">댓글 수정</button>
-						</div>
+			<div id="replies" class="row">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<span>rno: 3</span>,<span>작성자: 홍길동</span> <span class="pull-ligth">2020년
+							07월07일</span>
 					</div>
-					<!-- /.modal-content -->
+					<div class="panel-body">
+						<p>댓글 내용입니다</p>
+					</div>
+
 				</div>
-				<!-- /.modal-dialog -->
+
+
 			</div>
-			<!-- /.modal -->
-
-
-		</div>
 
 
 	
@@ -135,39 +98,9 @@
 
 
 			
-			$("#replies").on("click", ".replymodify", function() {
-				var rno = $(this).attr("data-rno");
-				var replyer = $(this).attr("data-name");
-				var replytext = $(this).prev().text();
+			
 
-				$(".modal-rno").text(rno);
-				$(".modal-replyer").text(replyer);
-				$(".modal-replytext").val(replytext);
-				$("#myModal").modal("show");
-
-			});
-
-			$("#replies").on("click", ".replydelete", function() {
-				var rno = $(this).attr("data-rno");
-				$.ajax({
-
-					type : 'delete',
-					url : "/replies",
-					headers : {
-						"Content-Type" : "application/json",
-						"X-HTTP-Method-Override" : "DELETE"
-					},
-					dataType : 'text',
-					data : JSON.stringify({
-						rno : rno
-
-					}),
-					success : function(result) {
-						getList(bno);
-					}
-				});
-
-			});
+			
 
 			$(".modal-update-btn").click(function() {
 
@@ -289,7 +222,7 @@
 											+ data[i]["updatedate"]
 											+ '</span></div><div class="panel-body"><p>'
 											+ data[i]["replytext"]
-											+ '</p><button data-name="'+data[i]["replyer"]+'"data-rno="'+data[i]["rno"]+'"class= "btn btn-warning replymodify">수정</button><button data-rno='+data[i]["rno"]+' class= "btn btn-warning btn replydelete">삭제</button></div></div>;'
+											+ '</p><button data-name="'+data[i]["replyer"]+'</div></div>;'
 
 								}
 								$("#replies").html(str);

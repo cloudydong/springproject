@@ -38,10 +38,11 @@ public class UsersDAOImpl implements UsersDAO {
 		return session.selectOne(NS + ".getU_noById", userId);
 	}
 
+
 	@Override
-	public AdminDTO loginpost(LoginDTO login) {
+	public AdminDTO loginpost(AdminDTO login) {
 		// TODO Auto-generated method stub
-		return session.selectOne(NS + ".loginpost",login);
+		return session.selectOne(NS + ".login_post",login);
 	}
 
 

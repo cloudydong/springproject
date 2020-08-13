@@ -18,4 +18,17 @@
  updateDate date default sysdate
  );
  
+create table qnaboardreply(
+rno number primary key,
+bno number not null,
+replyer varchar2(22),
+replytext varchar2(3000),
+regDate date default sysdate,
+updatedate date default sysdate
+);
+
+alter table qnaboardreply add constraint fk_bno foreign key(bno)
+references qnaboard(bno);
+ 
+ 
  

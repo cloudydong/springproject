@@ -13,30 +13,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
+
 <body>
-<style type = "text/css">
-body{
-background-image:url(image/sky.png);
-
-}
-.container{
-
-	position: absolute;
-	text-align: center;
-	width: 300px;
-	height:200px;
-	top:50%;
-	left:45%;
-	margin:-200px 0 0 -50px;
-	
-	
-
-}
 
 
-</style>
-<body>
+
 <div class = "container">
+<h1>관리자 페이지</h1>
 <form action = "/admin/loginpost" method = "post">
 <div class="form-group">
 	<label for= "id">ID:</label>

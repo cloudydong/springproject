@@ -50,7 +50,7 @@ margin:150px;
 					<c:forEach items="${list}" var="dto">
 						<tr>
 							<td>${dto.bno}</td>
-							<td><a href="/userpage/Noticeboardread/${dto.bno}">${dto.title}</a></td>
+							<td><a href="/admin/Noticeboardread/${dto.bno}">${dto.title}</a></td>
 							<td>${dto.writer}</td>
 							<td>${dto.regDate}</td>
 							<td>${dto.viewcnt}</td>

@@ -121,11 +121,8 @@ public class UserController {
 	public String Noticeread(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
 		
 		NoticeboardVO vo = nboardservice.read(bno);
-		UsersDTO dto =(UsersDTO) session.getAttribute("login");
-		model.addAttribute("login",dto);
-		System.out.println(login);
+
 		model.addAttribute("vo",vo);
-		System.out.println(dto);
 		return "userpage/Noticeboardread";
 	}
 	

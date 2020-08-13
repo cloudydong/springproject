@@ -51,7 +51,7 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public AdminDTO loginpost(LoginDTO login) {
+	public AdminDTO loginpost(AdminDTO login) {
 		// TODO Auto-generated method stub
 		return dao.loginpost(login);
 	}

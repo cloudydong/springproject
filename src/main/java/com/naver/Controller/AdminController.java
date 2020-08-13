@@ -11,17 +11,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.dto.LoginDTO;
 import kr.co.domain.ServiceCenter.*;
 import kr.co.domain.ServiceCenter.Notice.NoticeboardVO;
 import kr.co.domain.AdminDTO;
+import kr.co.domain.AdminloginDTO;
 import kr.co.domain.UsersDTO;
 import kr.co.service.Notice.*;
+import kr.co.service.AdminService;
 import kr.co.service.UsersService;
 
 @Controller
+@SessionAttributes({"login"})
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
@@ -30,6 +34,8 @@ public class AdminController {
 	private QnABoardService qboardserivce;
 	@Inject
 	private NoticeBoardSerivce nboardservice;
+	@Inject
+	private AdminService adminService;
 	
 	
 	//로그아웃 구현
@@ -40,16 +46,17 @@ public class AdminController {
 			return "redirect:/product/productList";
 		}
 		//로그인 화면 구현
-		@RequestMapping(value = "loginpost", method = { RequestMethod.POST, RequestMethod.GET })
-		public String loginpost(LoginDTO login, Model model, HttpSession session) {
-			AdminDTO dto = userService.loginpost(login);
+		@RequestMapping(value = "loginpost", method = {RequestMethod.POST, RequestMethod.GET})
+		public String loginpost(AdminloginDTO login, Model model, HttpSession session) {
+			AdminDTO dto = adminService.loginpost(login);
 			if (dto != null) {
 				model.addAttribute("login", dto);
 				session.setAttribute("login", dto);
-				return "/admin/Noticeboard";
+				System.out.println(dto);
+				return "redirect:/admin/Noticeboardlist";
 			}
-
-			return "/admin/adminlogin";
+			
+			return "/admin/login";
 
 		}
 		//로그인
@@ -66,7 +73,7 @@ public class AdminController {
 	}
 
 	//FAQ 글 찾기
-	@RequestMapping(value = "FAQsearchlist")
+	@RequestMapping(value = "faqsearchlist")
 	public String searchlist(Model model,String searchType,String keyword) {
 		
 		List<QnABoardVO> list = qboardserivce.searchlist(searchType,keyword);
@@ -100,14 +107,14 @@ public class AdminController {
 	}
 	//FAQ글 자세히보기 구현
 	@RequestMapping(value = "faqread/{bno}",method =RequestMethod.GET)
-	public String read(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
+	public String read(Model model,@PathVariable("bno")int bno,AdminloginDTO login, HttpSession session) {
 		
 		QnABoardVO vo = qboardserivce.read(bno);
-		UsersDTO dto =(UsersDTO) session.getAttribute("login");
+		AdminDTO dto =(AdminDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
-		System.out.println(login);
+
 		model.addAttribute("vo",vo);
-		System.out.println(dto);
+		
 		return "admin/faqread";
 	}
 	
@@ -147,14 +154,12 @@ public class AdminController {
 		
 	}
 	@RequestMapping(value ="Noticeboardread/{bno}",method =RequestMethod.GET)
-	public String Noticeread(Model model,@PathVariable("bno")int bno,LoginDTO login, HttpSession session) {
+	public String Noticeread(Model model,@PathVariable("bno")int bno,AdminloginDTO login, HttpSession session) {
 		
 		NoticeboardVO vo = nboardservice.read(bno);
-		UsersDTO dto =(UsersDTO) session.getAttribute("login");
+		AdminDTO dto =(AdminDTO) session.getAttribute("login");
 		model.addAttribute("login",dto);
-		System.out.println(login);
 		model.addAttribute("vo",vo);
-		System.out.println(dto);
 		return "admin/Noticeboardread";
 	}
 	
@@ -169,7 +174,7 @@ public class AdminController {
 	public String noticeboardupdate(NoticeboardVO vo) {
 		
 		nboardservice.update(vo);
-		return "admin/Noticeboardread/"+vo.getBno();
+		return "redirect:/admin/Noticeboardread/"+vo.getBno();
 	}
 
 	@RequestMapping(value = "Noticeboardupdate/{bno}",method = RequestMethod.GET)

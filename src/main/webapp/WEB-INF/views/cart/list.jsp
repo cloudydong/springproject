@@ -151,6 +151,7 @@
         <div class="col-sm-6 order-md-2 text-right">
 
             <button class="btn btn-primary mb-4 btn-lg pl-5 pr-5" id="resultid">결재하기</button>
+           
 
         </div>
 

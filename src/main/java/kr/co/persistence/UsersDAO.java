@@ -14,7 +14,7 @@ public interface UsersDAO {
 
 	Integer getU_noById(String userId);
 
-	AdminDTO loginpost(LoginDTO login);
+	AdminDTO loginpost(AdminDTO login);
 
 	
 }

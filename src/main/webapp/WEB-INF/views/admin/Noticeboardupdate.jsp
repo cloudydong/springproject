@@ -19,7 +19,7 @@
 	<div><h1>글수정</h1>
 	</div>
 	</div>
-		<form action="/Noticeupdate" method="post">
+		<form action="/admin/Noticeboardupdate" method="post">
 		<input type = "hidden" name = "bno" value = "${vo.bno}">
 			<div class = "form-group">
 				<label for = "title">제목</label>
@@ -52,7 +52,7 @@
 			});
 
 		$("#listbtn").click(function(){
-			location.assign("/qnaboard/list");
+			location.assign("/admin/Noticeboardlist");
 			
 			});
 		});
