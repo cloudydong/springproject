@@ -58,9 +58,9 @@ public class UsersController {
    }
    
    @RequestMapping(value = "/join", method = RequestMethod.POST)
-   public String join(String name, Model model, HttpSession session) {
+   public String join(String name,String address, Model model, HttpSession session) {
       Integer u_no =(Integer) session.getAttribute("user");
-      UsersDTO dto = new UsersDTO(u_no, null, name);
+      UsersDTO dto = new UsersDTO(u_no, null, name,address);
       usersService.updateName(dto);
       session.invalidate();
       model.addAttribute("result", "다시한번 로그인 해주세요");

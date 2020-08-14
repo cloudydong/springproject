@@ -33,7 +33,7 @@ body {
 							<div class="col-sm-5"><h4 style="color: grey;padding-top: 5px"><del id="price"></del></h4></div>
 						</div>
 						<div onclick="cart();" role="button" id="btnCart" class="btn btn-primary"></div>
-						<div id="btnBuy" class="btn btn-danger"></div><br><br> 
+						
 					</div>
 				</div>
 			</div>
@@ -85,9 +85,7 @@ body {
 		document.getElementById("btnCart").innerHTML = "장바구니에 담기";
 		//document.getElementById("btnCart").setAttribute("class", "btn btn-primary");
 		
-		document.getElementById("btnBuy").innerHTML = "바로 구매하기";
-		//document.getElementById("btnBuy").setAttribute("class", "btn btn-danger");
-
+		
 		document.getElementById("box").setAttribute("class", "card");
 
 	}

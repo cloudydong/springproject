@@ -50,6 +50,7 @@ public class CartController {
 		List<CartDTO> list = new ArrayList<CartDTO>();
 		list.addAll(cartService.selectList(user.getU_no()));
 		model.addAttribute("cartList", list);
+		model.addAttribute("loginUser",user);
 		return "/cart/list";
 	}
 	

@@ -13,7 +13,7 @@
 	</insert>
 
 	<update id="updateName">
-		update users set name = #{name} where u_no = #{u_no}
+		update users set name = #{name},address = #{address} where u_no = #{u_no}
 	</update>
 	
 	<select id="getU_noById" resultType="Integer">

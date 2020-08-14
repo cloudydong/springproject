@@ -147,7 +147,8 @@
     </div>
 
     <div class="row mt-4 d-flex align-items-center">
-
+			
+        
         <div class="col-sm-6 order-md-2 text-right">
 
             <button class="btn btn-primary mb-4 btn-lg pl-5 pr-5" id="resultid">결재하기</button>
@@ -164,6 +165,9 @@
         </div>
 
     </div>
+        	<h3>배송지:</h3>
+        	<h4>${loginUser.address}</h4>
+  
 
 </div>
 
