@@ -56,7 +56,6 @@
 
 				</div>
 
-			</form>
 			<div class="form-group">
 
 				<button class="btn btn-danger" id="insertbtn">등록</button>
@@ -64,6 +63,7 @@
 				<button class="btn btn-danger" id="listbtn">목록</button>
 
 			</div>
+			</form>
 			<script type="text/javascript">
 				$(document).ready(function() {
 

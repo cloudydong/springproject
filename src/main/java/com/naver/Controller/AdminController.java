@@ -1,10 +1,14 @@
 package com.naver.Controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.jsoup.helper.HttpConnection.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,16 +51,22 @@ public class AdminController {
 		}
 		//로그인 화면 구현
 		@RequestMapping(value = "loginpost", method = {RequestMethod.POST, RequestMethod.GET})
-		public String loginpost(AdminloginDTO login, Model model, HttpSession session) {
+		public String loginpost(AdminloginDTO login, Model model, HttpSession session,HttpServletResponse response) throws IOException {
 			AdminDTO dto = adminService.loginpost(login);
 			if (dto != null) {
 				model.addAttribute("login", dto);
 				session.setAttribute("login", dto);
 				System.out.println(dto);
 				return "redirect:/admin/Noticeboardlist";
+			}else {
+				
+				PrintWriter out = response.getWriter();
+				out.print("<script>alert('로그인정보를 확인해주세요'); history.go(-1);</script>");
+				out.flush();
+				
+				return "/admin/login";
 			}
 			
-			return "/admin/login";
 
 		}
 		//로그인
@@ -187,7 +197,7 @@ public class AdminController {
 		
 	}
 	@RequestMapping(value ="Noticeboardlist",method = RequestMethod.GET)
-	public void noticelist(Model model,String curPage) {
+	public String noticelist(Model model,String curPage,AdminloginDTO login,HttpSession session) {
 		int page = -1;
 		if(curPage==null) {
 			page = 1;
@@ -195,10 +205,16 @@ public class AdminController {
 		}else {
 			page = Integer.parseInt(curPage);
 		}
+		AdminDTO dto = (AdminDTO)session.getAttribute("login");
+		if(dto==null) {
+			return "/admin/login";
+		}
+		
 		QnaBoardPageTO<NoticeboardVO> to = new QnaBoardPageTO<NoticeboardVO>(page);
 		to = nboardservice.list(to);
 		model.addAttribute("to",to);
 		model.addAttribute("list",to.getList());
+		return "/admin/Noticeboardlist";
 		
 	}
 	

@@ -215,12 +215,7 @@
 
 			$("#replyInsertBtn").click(function() {
 				
-				var login = $("#login.id");
-				if(login==null){
-					alert("잘못된접근");
-
-				}else{
-
+				
 				var replyer = $("#replyer").val();
 				var replytext = $("#replytext").val();
 				
@@ -273,7 +268,7 @@
 					
 
 
-					}
+					
 
 			});
 

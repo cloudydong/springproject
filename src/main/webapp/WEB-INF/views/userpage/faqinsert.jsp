@@ -36,17 +36,17 @@ margin : 100px
 				</div>
 				<div class="form-group">
 					<label for="writer">작성자</label> 
-					<input name="writer" value="${loginUser.name}" id = "writer"class="form-control">
+					<input name="writer" value="${loginUser.name}" id = "writer"class="form-control" readonly>
 				</div>
 				<div class="form-group">
 					<label for="content">내용</label>
 					<textarea class="form-control" id="content" rows="10" cols="100"  name="content"></textarea>
 				</div>
-			</form>			
-			<div class="form-group">
+			<div class="form">
 				<button class="btn btn-danger" id="insertbtn">등록</button>
 				<button class="btn btn-danger" id="listbtn">목록</button>
 			</div>
+			</form>			
 			<script type="text/javascript">
 				$(document).ready(function() {
 

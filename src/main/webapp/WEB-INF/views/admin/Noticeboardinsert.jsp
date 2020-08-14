@@ -45,7 +45,7 @@
 				<div class="form-group">
 
 					<label for="writer">작성자</label> <input name="writer" value="${login.id}" id = "writer"
-						class="form-control">
+						class="form-control"readonly>
 
 				</div>
 				<div class="form-group">
